@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>放大镜练习</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.zoom{
+				width: 300px;
+				height: 300px;
+				border: 1px solid #BBBBBB;
+				margin: 30px;
+				position: relative;
+			}
+			.s_area{
+				position: relative;
+			}
+			.mask{
+				position: absolute;
+				left: -10000px;
+				top: 0;
+				width: 100px;
+				height: 100px;
+				border: 1px solid #bbb;
+				background: rgba(255,255,255,0.6);
+			}
+			.s_area img{
+				display: block;
+			}
+			.b_area img{
+				display: block;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			.b_area{
+				width: 400px;
+				height: 400px;
+				position: absolute;
+				left: -10000px;
+				top: -1px;
+				border: 1px solid #BBBBBB;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="zoom">
+			<div class="s_area">
+				<img width="300" height="300" src="images/pc_s.jpg"/>
+				<span class="mask"></span>
+			</div>
+			<div class="b_area">
+				<img width="800" height="800" src="images/pc.jpg"/>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var zoom=document.querySelector(".zoom");
+			var s_area=document.querySelector(".s_area");
+			var b_area=document.querySelector(".b_area");
+			var mask=document.querySelector(".mask");
+			var b_img=document.querySelector(".zoom .b_area img");
+			//鼠标滑入显示大图区和遮盖层
+			s_area.onmouseenter=function(){
+				b_area.style.left="300px";
+				mask.style.left=0;
+			}
+			//鼠标滑出隐藏大图区和遮盖层
+			s_area.onmouseleave=function(){
+				b_area.style.left="-10000px";
+				mask.style.left="-10000px";
+			}
+			//设置遮盖层大小
+			//遮罩层宽高度 = (s_area/b_img)*s_area;
+			mask.style.width=(s_area.offsetWidth/b_img.offsetWidth)*s_area.offsetWidth+"px";
+			mask.style.height=(s_area.offsetHeight/b_img.offsetHeight)*s_area.offsetHeight+"px";
+			var maxW=s_area.clientWidth-mask.offsetWidth;
+			var maxH=s_area.clientHeight-mask.offsetHeight;
+			//在小图区移动时，遮罩层和大图改变位置
+			s_area.onmousemove=function(e){
+				e=e||window.event;
+				var left=e.pageX-zoom.offsetLeft-zoom.clientLeft-mask.offsetWidth/2;
+				var top=e.pageY-zoom.offsetTop-zoom.clientTop-mask.offsetHeight/2;
+				left=Math.max(0,Math.min(left,maxW));
+				top=Math.max(0,Math.min(top,maxH));
+				mask.style.left=left+"px";
+				mask.style.top=top+"px";
+				b_img.style.left=-(left/maxW)*(b_img.offsetWidth-b_area.clientWidth)+"px";
+				b_img.style.top=-(top/maxH)*(b_img.offsetHeight-b_area.clientHeight)+"px";
+			}
+		</script>
+	</body>
+</html>

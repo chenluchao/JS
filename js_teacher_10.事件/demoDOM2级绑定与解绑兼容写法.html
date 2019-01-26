@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>兼容写法</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function addEvent(ele,eventType,handler){
+			if(ele.addEventListener){
+				ele.addEventListener(eventType,handler,false);
+			}else{
+				ele.attachEvent("on"+eventType,handler);
+			}
+		}
+		
+		function removeEvent(ele,eventType,handler){
+			if(ele.removeEventListener){
+				ele.removeEventListener(eventType,handler);
+			}else{
+				ele.detachEvent("on"+eventType,handler);
+			}
+		}
+	</script>
+</body>
+</html>

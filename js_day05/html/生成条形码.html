@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.mama{
+				width: 400px;
+				height: 150px;
+				background-color: #808080;
+				margin: 100px auto;
+				overflow: hidden;
+				border-radius: 20px;
+			}
+			#tex{
+				margin-top: 40px;
+				color: red;
+			}
+			#but{
+				width: 202px;
+				color: green;
+			}
+			input{
+				border: 1px solid yellowgreen;
+				outline: none;
+				display: block;
+				text-align: center;
+				width: 200px;
+				height: 20px;
+				margin-left: 100px;
+			}
+			.mama h1{
+				color: beige;
+				font-weight: bold;
+				margin-top: 15px;
+				text-align: center;
+			}
+		</style>
+		<script type="text/javascript">
+			function yanzheng (){
+				//生成12位随机数
+				var ma="";
+				for(var i=0;i<12;i++){
+					ma+=Math.floor(Math.random()*10);
+				}
+				
+			//奇偶数位和
+			var numji=0;
+			var numou=0;
+			for(var j=0;j<12;j++){
+					if(j%2==1){
+						numji+=parseInt(ma[j]);
+					}
+					else{
+						numou+=parseInt(ma[j]);
+					}
+					
+			}
+			
+			//求第十三位数字	
+			var suan=10-(numji+numou*3)%10;
+			if(suan==10){
+				ma=ma.concat(0);
+			}
+			else{
+				ma=ma.concat(suan.toString());
+			}
+			
+			var out=document.getElementById("tex");
+			out.value=ma;
+		}
+		</script>
+	</head>
+	<body>
+		
+		<div class="mama">
+			<h1>验证码</h1>
+			<input type="text" name="tex " id="tex"  />
+			<input type="button" id="but" onclick="yanzheng()" value="获取验证码" />
+		</div>
+		
+	</body>
+</html>

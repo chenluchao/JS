@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.tab{
+			width: 400px;
+			margin: 20px auto;
+		}
+		.tab_btn{
+			overflow: hidden;
+			margin-right: -10px;
+		}
+		.tab_btn button{
+			float: left;
+			border: none;
+			background: #03ccbb;
+			height: 30px;
+			width: 72px;
+			margin-right: 10px;
+			color: #FFF;
+			outline: none;
+		}
+		.tab_btn button.active{
+			background: #F90;
+		}
+		.tab_show{
+			position: relative;
+		}
+		.tab_show p{
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 200px;
+			width: 400px;
+			background: #F90;
+			text-align: center;
+			line-height: 200px;
+			color: #FFF;
+			font-size: 100px;
+			display: none;
+		}
+		.tab_show p.active{
+			display: block;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="tab">
+			<div class="tab_btn">
+				<button class="active">按钮01</button>
+				<button>按钮02</button>
+				<button>按钮03</button>
+				<button>按钮04</button>
+				<button>按钮05</button>
+			</div>
+			<div class="tab_show">
+				<p class="active">01</p>
+				<p>02</p>
+				<p>03</p>
+				<p>04</p>
+				<p>05</p>
+			</div>
+		</div>
+		
+		<!--<div class="tab">
+			<div class="tab_show">
+				<p class="active">01</p>
+				<p>02</p>
+				<p>03</p>
+				<p>04</p>
+				<p>05</p>
+			</div>
+			<div class="tab_btn">
+				<button class="active">按钮01</button>
+				<button>按钮02</button>
+				<button>按钮03</button>
+				<button>按钮04</button>
+				<button>按钮05</button>
+			</div>
+		</div>
+		<div class="tab">
+			<div class="tab_btn">
+				<button class="active">按钮01</button>
+				<button>按钮02</button>
+				<button>按钮03</button>
+				<button>按钮04</button>
+				<button>按钮05</button>
+			</div>
+			<div class="tab_show">
+				<p class="active">01</p>
+				<p>02</p>
+				<p>03</p>
+				<p>04</p>
+				<p>05</p>
+			</div>
+		</div>-->
+		<script type="text/javascript" src="js/jQuery.js"></script>
+		<script type="text/javascript" src="js/extend.js"></script>
+		<script type="text/javascript">
+			$('.tab').tab(".tab_btn",".tab_show","active")
+		</script>
+	</body>
+</html>

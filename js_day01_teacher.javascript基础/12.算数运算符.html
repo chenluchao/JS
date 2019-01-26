@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//+ - * / %
+		//NaN与任何数字进行运算都会得到NaN
+
+		var a = 10;
+		var b = 4;
+
+		console.log(a+b);//14
+		console.log(a-b);//6
+		console.log(a*b);//40
+		console.log(a/b);//2.5
+		console.log(a%b);//2
+
+		var c = "123";
+
+		console.log(a+c+b+a);//符号两侧有一侧为字符串，则进行字符串拼接
+
+		//+ - * / %  两侧无字符串，会先将两侧强制转为数字，再进行运算
+
+		console.log(true + 1);
+		console.log(undefined + 10);
+
+		console.log(""*100);
+
+	</script>
+</body>
+</html>

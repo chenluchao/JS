@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//instanceof 判断某个对象是否出于某个构造函数
+		
+		function Person(name,age,sex){
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+		}
+		Person.prototype.sayName=function(){
+			console.log(this.name);
+		}
+
+		//继承
+		function Chinese(name,age,sex,language){
+			Person.apply(this,arguments);
+			this.language = language;
+
+		}
+		Chinese.prototype = new Person();
+		Chinese.prototype.constructor = Chinese;
+		Chinese.prototype.sayAge=function(){
+			console.log(this.age);
+		}
+
+		var chinese = new Chinese("张三",18,"男","中文");
+
+		console.log(chinese);
+
+		chinese.sayAge();
+		chinese.sayName();
+
+
+		console.log(chinese instanceof Chinese);
+
+		console.log(chinese instanceof Person);
+		
+		console.log(chinese instanceof Object);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function secret(str,start,end){
+			var star = "";
+			for(var i=0; i<str.length-start-end; i++){
+				star+="*";
+			}
+			return str.substr(0,start)+star+str.slice(-end);
+		} 
+		console.log(secret("135330199908210420",6,4));
+	</script>
+</body>
+</html>

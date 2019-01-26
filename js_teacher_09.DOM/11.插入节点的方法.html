@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>创建节点的方法</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			将child添加到parent的最后
+				parent.appndChild(child);
+
+			将child添加到某个子元素之前
+				parent.insertBefore(child,子元素);//参数1、待插入的元素参数2、哪个子元素前面
+		*/
+
+		var ele = document.createElement("div");
+
+		ele.setAttribute("data-src","image/1.jpg");
+
+		ele.className = "active";
+
+		document.body.appendChild(ele);
+
+		var text = document.createTextNode("我是一个文本节点");
+
+		document.body.insertBefore(text,ele);
+	</script>
+</body>
+</html>

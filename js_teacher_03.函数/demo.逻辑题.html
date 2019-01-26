@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var a = 10;
+
+		function fn(a){//参数相当于局部变量：a=10
+			alert(a);//变量查找，查询到局部a；10
+			a = 20;//将局部变量设置为20；a=20;
+			alert(a);//变量查询，查询到局部a；20
+		}
+
+		fn(a);//传递参数为10
+
+		alert(a);//变量查询，查询到全局a；10
+	</script>
+</body>
+</html>

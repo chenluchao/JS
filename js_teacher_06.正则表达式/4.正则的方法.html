@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+			.test();//匹配字符规则(模式)
+
+			.exec();//
+
+			+ 贪婪匹配
+			? 非贪婪
+		*/
+
+		var str = "2018-09-21";
+
+		var reg = /\d+/;
+
+		console.log(reg.exec(str));//["2018"];
+
+		var reg1 = /(\d+)-(\d+)-(\d+)/;
+		console.log(reg1.exec(str));//["2018-09-21","2018","09","21"];
+
+
+	</script>
+</body>
+</html>

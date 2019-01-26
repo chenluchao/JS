@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>冒泡的问题</title>
+	<style type="text/css">
+		.box{
+			width: 200px;
+			height: 200px;
+			background: #03ccbb;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<button>打开</button>
+	<div class="box">
+	</div>
+
+	<script type="text/javascript">
+		var btn = document.querySelector("button");
+		var box = document.querySelector(".box");
+
+		btn.onclick=function(e){
+			e = e || window.event;
+			box.style.display = "block";
+
+			e.stopPropagation?e.stopPropagation():e.cancelBubble = true;
+		}
+
+		document.onclick=function(){
+			box.style.display = "none";
+		}
+	</script>
+</body>
+</html>

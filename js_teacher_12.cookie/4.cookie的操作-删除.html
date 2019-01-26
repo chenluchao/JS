@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+			cookie没有提供删除数据的接口，但是可以通过设置数据的过期时间来让系统自动删除cookie
+		*/
+		var date = new Date();
+		date.setDate(date.getDate()-1);
+		document.cookie = "name=; expires="+date;
+	</script>
+</body>
+</html>

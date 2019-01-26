@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>身份证验证</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			outline: 0;
+		}
+		.big{
+			width: 500px;
+			height: 250px;
+			background-color: #ccc;
+			margin: 150px auto;
+			text-align: center;
+			border-radius: 25px;
+			overflow: hidden;
+		}
+		h1{
+			margin-top: 25px;
+		}
+		#numb{
+			width: 200px;
+			margin-top: 30px;
+			height: 20px;
+		}
+		#xian{
+			display: inline-block;
+			width: 115px;
+			height: 25px;
+			color: grey;
+		}
+		#di2{
+			margin-top: 25px;
+		}
+		#numb::-webkit-input-placeholder{
+			color: blueviolet;
+		}
+		#out{
+			width: 85px;
+			height: 20px;
+		}
+		#but{
+			margin-top: 15px;
+			width: 204px;
+			height: 35px;
+			color: red;
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="big">
+		<h1>身份证验证</h1>
+		<div id="">
+			<input type="text" name="numb" id="numb" placeholder="请输入身份证号进行验证" />
+			
+		</div>
+		<input type="button" onclick="yanz()" id="but" value="点击验证" />
+		<div id="di2">
+			<span id="xian">
+				身份证验证结果为：
+			</span>
+			<input type="text" name="out" id="out" placeholder="验证结果" />
+		</div>
+	</div>
+	<script>
+		//前17位数字，最后一位可以是xX
+		function yanz(){
+			var numb=document.getElementById('numb').value;
+			var reg=/^\d{17}[x,X,\d]$/;
+			if(reg.test(numb)){
+				var a=document.getElementById('out');
+				a.value="验证成功";
+				a.style.color="deepskyblue"
+			}
+			else{
+				var a=document.getElementById('out');
+				a.value="验证失败";
+				a.style.color="red"
+			}
+		}
+		
+	</script>
+</body>
+</html>

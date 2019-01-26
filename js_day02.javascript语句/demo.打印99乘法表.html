@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			float: left;
+			width: 88px;
+			height: 32px;
+			line-height: 32px;
+			text-align: center;
+			color: #FFF;
+			border: solid #03ccbb 2px;
+			background: #F90;
+			margin: 1px;
+		}
+		span{
+			clear: both;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		for(var j=1; j<10; j++){
+			for(var i=1; i<=j; i++){
+				document.write("<div>"+i+"*"+j+"="+i*j+"</div>");
+			}
+			document.write("<span></span>");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<div class="nav">
+		<div class="nav_bar center hid">
+			<ul class="r">
+				<li>
+					<a href="javascript:;">加入收藏</a>
+				</li>
+				<li>
+					<a href="javascript:;">设为首页</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="menu">
+		<ul class="hid center main_menu">
+			<li>
+				<a href="javascript:;">首页</a>
+			</li>
+			<li>
+				<a href="javascript:;">关于我们</a>
+			</li>
+			<li>
+				<a href="javascript:;">新闻中心</a>
+			</li>
+			<li>
+				<a href="javascript:;">产品中心</a>
+			</li>
+			<li>
+				<a href="javascript:;">联系我们</a>
+			</li>
+		</ul>
+		<div class="sub_menu">
+			<p>01</p>
+			<p>02</p>
+			<p>03</p>
+			<p>04</p>
+			<p>05</p>
+		</div>
+	</div>
+	<div class="swiper-container">
+	    <div class="swiper-wrapper">
+	        <div class="swiper-slide"><img src="images/1.1.jpg" alt=""></div>
+	        <div class="swiper-slide"><img src="images/2.1.jpg" alt=""></div>
+	        <div class="swiper-slide"><img src="images/3.1.jpg" alt=""></div>
+	        <div class="swiper-slide"><img src="images/4.1.jpg" alt=""></div>
+	        <div class="swiper-slide"><img src="images/5.1.jpg" alt=""></div>
+	    </div>
+	    <div class="swiper-pagination"></div>
+	    <div class="swiper-button-prev"></div>
+	    <div class="swiper-button-next"></div>
+	</div>
+	<!--手风琴-->
+	<div class="box">
+		<ul>
+			<li>
+				<img src="images/1.jpg" alt="">
+				<div class="mask"><span>园林酒店</span></div>
+			</li>
+			<li>
+				<img src="images/2.jpg" alt="">
+				<div class="mask"><span>情侣酒店</span></div>
+			</li>
+			<li>
+				<img src="images/3.jpg" alt="">
+				<div class="mask"><span>设计师酒店</span></div>
+			</li>
+			<li>
+				<img src="images/4.jpg" alt="">
+				<div class="mask"><span>青年旅社</span></div>
+			</li>
+			<li>
+				<img src="images/5.jpg" alt="">
+				<div class="mask"><span>特色客栈</span></div>
+			</li>
+			<li>
+				<img src="images/6.jpg" alt="">
+				<div class="mask"><span>海岛酒店</span></div>
+			</li>
+			<li>
+				<img src="images/7.jpg" alt="">
+				<div class="mask"><span>海外温泉</span></div>
+			</li>
+		</ul>
+	</div>
+	<!--baidutemplate-->
+	<div class="baidubox">
+		<div id="movies"></div>
+		<div id="pages" class="holder"></div>
+	</div>
+	<script id="temp" type="text/html">
+		<ul id="container">
+			<% for(var i=0; i<movies.length; i++){ %>
+				<li>
+					<dl class="moviebox">
+						<dt>
+							<img src="<%=movies[i].logo_url%>" alt="">
+						</dt>
+						<dd>
+							<%=movies[i].name%>
+						</dd>
+						<dd>
+							<%=movies[i].cats%>
+						</dd>
+					</dl>
+				</li>
+			<% } %>
+		</ul>
+	</script>
+	<!--lazyload-->
+	<div id="itemContainer">
+		<div class="lazybox">
+			<img class="lazy" data-original="images/1.jpg" alt="">
+			<img class="lazy" data-original="images/2.jpg" alt="">
+			<img class="lazy" data-original="images/3.jpg" alt="">
+			<img class="lazy" data-original="images/4.jpg" alt="">
+			<img class="lazy" data-original="images/5.jpg" alt="">
+			<img class="lazy" data-original="images/6.jpg" alt="">
+			<img class="lazy" data-original="images/7.jpg" alt="">
+		</div>
+		<div class="lazybox">
+			<img class="lazy" data-original="images/1.jpg" alt="">
+			<img class="lazy" data-original="images/2.jpg" alt="">
+			<img class="lazy" data-original="images/3.jpg" alt="">
+			<img class="lazy" data-original="images/4.jpg" alt="">
+			<img class="lazy" data-original="images/5.jpg" alt="">
+			<img class="lazy" data-original="images/6.jpg" alt="">
+			<img class="lazy" data-original="images/7.jpg" alt="">
+		</div>
+		<div class="lazybox">
+			<img class="lazy" data-original="images/1.jpg" alt="">
+			<img class="lazy" data-original="images/2.jpg" alt="">
+			<img class="lazy" data-original="images/3.jpg" alt="">
+			<img class="lazy" data-original="images/4.jpg" alt="">
+			<img class="lazy" data-original="images/5.jpg" alt="">
+			<img class="lazy" data-original="images/6.jpg" alt="">
+			<img class="lazy" data-original="images/7.jpg" alt="">
+		</div>
+		<div class="lazybox">
+			<img class="lazy" data-original="images/1.jpg" alt="">
+			<img class="lazy" data-original="images/2.jpg" alt="">
+			<img class="lazy" data-original="images/3.jpg" alt="">
+			<img class="lazy" data-original="images/4.jpg" alt="">
+			<img class="lazy" data-original="images/5.jpg" alt="">
+			<img class="lazy" data-original="images/6.jpg" alt="">
+			<img class="lazy" data-original="images/7.jpg" alt="">
+		</div>
+		<div class="lazybox">
+			<img class="lazy" data-original="images/1.jpg" alt="">
+			<img class="lazy" data-original="images/2.jpg" alt="">
+			<img class="lazy" data-original="images/3.jpg" alt="">
+			<img class="lazy" data-original="images/4.jpg" alt="">
+			<img class="lazy" data-original="images/5.jpg" alt="">
+			<img class="lazy" data-original="images/6.jpg" alt="">
+			<img class="lazy" data-original="images/7.jpg" alt="">
+		</div>
+		<div class="lazybox">
+			<img class="lazy" data-original="images/1.jpg" alt="">
+			<img class="lazy" data-original="images/2.jpg" alt="">
+			<img class="lazy" data-original="images/3.jpg" alt="">
+			<img class="lazy" data-original="images/4.jpg" alt="">
+			<img class="lazy" data-original="images/5.jpg" alt="">
+			<img class="lazy" data-original="images/6.jpg" alt="">
+			<img class="lazy" data-original="images/7.jpg" alt="">
+		</div>
+	</div>
+	<div class="holder"></div>
+	<script src="js/require.min.js" data-main="js/index.js"></script>
+</body>
+</html>

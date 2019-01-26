@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function Person(name,age,sex){
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+		}
+		Person.prototype.sayName=function(){
+			console.log(this.name);
+		}
+		Person.prototype.sayAge=function(){
+			console.log(this.age);
+		}
+
+		function Chinese(name,age,sex){
+			Person.apply(this,arguments);
+		}
+
+		for(var attr in Person.prototype){
+			Chinese.prototype[attr] = Person.prototype[attr];
+		}
+
+		var chinese = new Chinese("张胜男",20,"女");
+
+		console.log(chinese instanceof Chinese);
+
+		console.log(chinese instanceof Person);
+	</script>
+</body>
+</html>

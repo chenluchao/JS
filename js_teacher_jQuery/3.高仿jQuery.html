@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<script src="js/query.js"></script>
+	<script>
+		$(".box").css({
+			width:"200px",
+			height:"200px",
+			background:"#03ccbb",
+			margin:"10px"
+		}).css({
+			border:"10px #000 solid"
+		}).css({
+			background:"#F90"
+		}).click(function(){
+			alert("abc");
+		}).css({
+			background:"red"
+		});
+	</script>
+</body>
+</html>

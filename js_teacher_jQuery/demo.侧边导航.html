@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.menu ul li.active{
+			color: #F90;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="menu">
+		<ul>
+			<li>关于我们</li>
+			<li>企业荣誉</li>
+			<li>组织架构</li>
+			<li>联系我们</li>
+			<li>加入我们</li>
+			<li>投诉建议</li>
+		</ul>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script>
+		
+		$(".menu ul li").click(function(){
+			$(this).addClass("active").siblings().removeClass("active");
+		});
+
+	</script>
+</body>
+</html>

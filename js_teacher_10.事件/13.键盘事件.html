@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>键盘事件</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			e.keyCode 存放按键的编码
+			e.key 存放按键，不兼容IE
+		*/
+		document.onkeydown=function(e){
+			e = e||event;
+			console.log(e.keyCode);
+		}
+	</script>
+</body>
+</html>

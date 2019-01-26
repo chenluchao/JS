@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		/*
+			对象字面量：
+				描述的数据具有唯一性。
+				结构清晰，代码可读性高
+
+			工厂函数：
+				弥补了字面量的缺点，提高代码的复用性。
+
+		*/
+		var phone = {
+			brand:"华为",
+			version:"P9",
+			color:"白色",
+			size:"1920*1080",
+			takeCall:function(){
+				console.log("正在呼叫习近平");
+			},
+			takeMessage:function(){
+				console.log("发短信给彭丽媛");
+			}
+		}
+
+
+		function createObj(brand,version,color,size){
+			return {
+				brand:brand,
+				version:version,
+				color:color,
+				size:size,
+				takeCall:function(){
+					console.log("正在呼叫习近平");
+				},
+				takeMessage:function(){
+					console.log("发短信给彭丽媛");
+				}
+			}
+		}
+
+		var apple = createObj("Apple","X","白色","1920*1080");
+
+		console.log(apple);
+
+
+	</script>
+
+</body>
+</html>

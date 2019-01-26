@@ -1,0 +1,25 @@
+@import 'reset';
+$fzcolor:#F90;
+$basecolor:#FFF;
+
+.box span{
+	background: $basecolor;
+	&.active{
+		background: $fzcolor;
+	}
+	i{
+		color: #ccc;
+	}
+}
+
+@mixin yuanjiao($px){
+	border-radius:$px;
+	-o-border-radius:$px;
+	-webkit-border-radius:$px;
+	-ms-border-radius:$px;
+	-moz-border-radius:$px;
+}
+
+.border{
+	@include yuanjiao(10px);
+}

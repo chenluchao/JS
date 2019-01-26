@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button onclick="login()">登录</button>
+	<button onclick="add()">添加喜欢</button>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		//发送请求，接收数据
+		function login(){
+			$.ajax({
+				url:"http://localhost:3000/users/login",//请求地址
+				type:"post",//请求方式
+				async:true,//是否异步
+				data:{
+					phone:13800000009,
+					passwd:123456
+				},
+				success:function(data){//成功回调
+					console.log(data)
+					var uid=data.user.id
+					var tokenStr=data.user.token
+					if (window.localStorage) {
+						localStorage.token =tokenStr
+					}
+					console.log(localStorage.token)
+				},
+				error:function(xhr){//失败回调
+					console.log(xhr.status)
+				},
+			});
+		}
+		function add(){
+			var tokenStr=localStorage.token
+			console.log(tokenStr)
+			//var arr=tokenStr.split("|")
+			//var uid=arr[0]
+			//var token_test=arr[1]
+			console.log(tokenStr)
+			$.ajax({
+				url:"http://localhost:3000/users/like?movie_id=1",//请求地址
+				type:"post",//请求方式
+				async:true,//是否异步
+				data:{
+					token_test:tokenStr
+				},
+				success:function(data){//成功回调
+					console.log(data)
+				},
+				error:function(xhr){//失败回调
+					console.log(xhr.status)
+				},
+			});
+		}
+		
+	</script>
+</body>
+</html>

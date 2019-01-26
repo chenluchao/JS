@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+		/*
+			动态属性：
+				定义到原型内，实例化以后才能访问的属性称为动态属性
+
+			静态属性：
+				直接定义到对象下的属性称为静态属性。
+		*/
+
+		var str = "abc";//new String('abc');//实例化对象
+
+		str.charAt(0);//slice() substr() substing()  //动态方法
+
+		String.prototype.charAt;
+
+		console.log(String.fromCharCode(65));
+
+
+		function Phone(){
+
+		}
+
+		Phone.takeMessage=function(){
+			alert("发短信");
+		}
+
+		Phone.prototype.takeCall=function(){
+			alert("打电话");
+		}
+
+		var phone = new Phone();
+
+		phone.takeCall();//动态
+
+		Phone.takeMessage();//静态
+
+
+
+
+
+	</script>
+</body>
+</html>

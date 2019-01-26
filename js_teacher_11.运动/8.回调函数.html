@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>运动的条件</title>
+	<style type="text/css">
+		.box{
+			position:absolute;
+			width: 100px;
+			height: 100px;
+			background: #F90;
+			left: 0;
+			top:100px;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<button>开始运动</button>
+	<div class="box">
+		文字
+	</div>
+	<script type="text/javascript">
+		var ele = document.querySelector(".box");
+		var btn = document.querySelector("button");
+
+
+		btn.onclick=function(){
+			//链式运动
+			move(ele,{
+				left:1000
+			},500,function(){
+				move(ele,{
+					top:400
+				},1000,function(){
+					move(ele,{
+						fontSize:50
+					},2000);
+				});
+			});
+		}
+
+		function move(ele,props,duration,callback){
+			if(ele.timer) return;
+			var starts = {};
+			for(var attr in props){
+				starts[attr] = parseInt(getStyle(ele)[attr]);
+			}
+
+			var totals = {};
+			for(var attr in props){
+				totals[attr] = props[attr] - starts[attr];
+			}
+
+			var starttime = new Date();//记录起始时间
+			ele.timer = setInterval(function(){
+				//计算耗时比
+				var scale = (new Date()-starttime)/duration;
+
+				if(scale>=1) scale = 1;
+
+				for(var attr in props){
+					ele.style[attr] = starts[attr]+totals[attr]*scale+"px";
+				}
+				if(scale==1){
+					clearInterval(ele.timer);
+					ele.timer = null;
+					if(callback) callback();
+				}
+			},10);
+		}
+
+		function getStyle(ele){
+			return window.getComputedStyle?window.getComputedStyle(ele,false):ele.currentStyle;
+		}
+	</script>
+</body>
+</html>

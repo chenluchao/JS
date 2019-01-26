@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body{
+		overflow: hidden;
+	}
+		img{
+			position: absolute;
+			width: 100%;
+			height: auto;
+			left: 0;
+			top: 0;
+			z-index: -1;
+		}
+	</style>
+</head>
+<body>
+	<div class="hrefs">
+		<span data-src="images/1.jpg">淘宝电场</span>
+		<span data-src="images/2.jpg">奢牌同色</span>
+		<span data-src="images/3.jpg">特卖专场</span>
+		<span data-src="images/4.jpg">开学季促销</span>
+	</div>
+	<img src="images/1.jpg">
+
+	<script>
+		var spans = document.querySelectorAll(".hrefs span");
+		var image = document.querySelector("img");
+
+		for(var i=0; i<spans.length; i++){
+			spans[i].onclick=function(){
+				var src = this.getAttribute("data-src");
+				image.setAttribute("src",src);
+			}
+		}
+
+	</script>
+</body>
+</html>

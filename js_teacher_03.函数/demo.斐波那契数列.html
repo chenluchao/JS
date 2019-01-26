@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+			1 1 2 3 5 8 13 21 34 55
+		*/
+
+		//求数列中的第10个数
+
+		function feibo(n){
+			if(n==1 || n==2){
+				return 1;
+			}else{
+				return feibo(n-1)+feibo(n-2);
+			}
+		}
+
+		console.log(feibo(30));
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		img{
+			display: block;
+			margin: 100px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="lazybox">
+		<img class="lazy" data-original="images/1.jpg" alt="">
+		<img class="lazy" data-original="images/2.jpg" alt="">
+		<img class="lazy" data-original="images/3.jpg" alt="">
+		<img class="lazy" data-original="images/4.jpg" alt="">
+		<img class="lazy" data-original="images/5.jpg" alt="">
+		<img class="lazy" data-original="images/6.jpg" alt="">
+		<img class="lazy" data-original="images/7.jpg" alt="">
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/lazyload.min.js"></script>
+
+	<script>
+		$(".lazybox img").lazyload();
+	</script>
+</body>
+</html>

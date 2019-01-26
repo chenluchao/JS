@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul class="list">
+		<li>01</li>
+		<li>02</li>
+		<li>03</li>
+		<li>04</li>
+		<li>05</li>
+		<li>06</li>
+		<li>07</li>
+		<li>08</li>
+		<li>09</li>
+		<li>10</li>
+	</ul>
+	<ul class="list">
+		<li>01</li>
+		<li>02</li>
+		<li>03</li>
+		<li>04</li>
+		<li>05</li>
+		<li>06</li>
+		<li>07</li>
+		<li>08</li>
+		<li>09</li>
+		<li>10</li>
+	</ul>
+	<ul class="list">
+		<li>01</li>
+		<li>02</li>
+		<li>03</li>
+		<li>04</li>
+		<li>05</li>
+		<li>06</li>
+		<li>07</li>
+		<li>08</li>
+		<li>09</li>
+		<li>10</li>
+	</ul>
+	<ul class="list">
+		<li>01</li>
+		<li>02</li>
+		<li>03</li>
+		<li>04</li>
+		<li>05</li>
+		<li>06</li>
+		<li>07</li>
+		<li>08</li>
+		<li>09</li>
+		<li>10</li>
+	</ul>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		//query 查询
+
+		$(".list").children().css({
+			background:"#F90",
+			margin:10
+		}).on("click",function(){
+			$(this).animate({
+				opacity:0
+			},300,function(){
+				$(this).animate({
+					opacity:1
+				},300);
+			});
+		});
+
+		$.ajax({
+			url:"http://qijianhong.cn/login",
+			async:true,
+			cache:false,
+			method:"GET",
+			data:{
+				username:"qijianhong",
+				password:"123456"
+			},
+			success:function(data){
+				console.log(data);
+			},
+			error:function(xhr){
+				console.log(xhr.status);
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>运动综合练习</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				border-radius: 50%;
+				background: #03CCBB;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<p>欢迎</p>
+		</div>
+		<script type="text/javascript">
+			var ele=document.querySelector(".box");
+			//move(ele,"font-size",50,500)
+			move(ele,{
+			left:1000,
+			top:500,
+			fontSize:50,
+			marginTop:10
+		},500);
+			
+			function move(ele,props,duration){
+				//var start={parseInt(getStyle(ele)[prop])};
+				var starts={};
+				for(var attr in props){
+					starts[attr]=parseInt(getStyle(ele)[attr]);
+				}
+				
+				var totals={};
+				for(var attr in props){
+					totals[attr]=props[attr]-starts[attr];
+				}
+				//var total=target-start;
+				
+				var starttime=new Date();
+				var timer=setInterval(function(){
+					var scale=(new Date()-starttime)/duration;
+					if(scale>=1){
+						scale=1;
+						clearInterval(timer);
+					}
+					for(var attr in props){
+						ele.style[attr]=starts[attr]+totals[attr]*scale+"px";
+					}
+					//ele.style[prop]=start+total*scale+"px";
+				},10)
+			}
+			
+			
+			function getStyle(ele){
+				return window.getComputedStyle?window.getComputedStyle(ele,false):ele.currentStyle;
+			}
+		</script>
+	</body>
+</html>

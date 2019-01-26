@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="js/jquery.min.js"></script>
+
+	<script>
+		var a = {
+			name:"张三",
+			age:18
+		}
+
+		var b = {
+			sex:"男",
+			sayName:function(){
+				console.log(this.name);
+			},
+			friend:{
+				name:"李四",
+				age:20
+			}
+		}
+
+		//低耦合
+		//$.extend(a,b);//浅拷贝
+
+		$.extend(true,a,b);//深拷贝
+
+		a.friend.name = "王五";
+
+		console.log(b.friend.name);
+	</script>
+</body>
+</html>

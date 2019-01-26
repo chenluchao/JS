@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>01</li>
+		<li>02</li>
+		<li>03</li>
+		<li>04</li>
+		<li>05</li>
+	</ul>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		$("ul li").eq(2).after("<li>之后</li>");
+		$("<li>之后</li>").insertAfter("ul li:eq(2)");
+
+		$("ul li").eq(2).before("<li>之前</li>");
+		$("<li>之前</li>").insertBefore('ul li:eq(2)');
+	</script>
+</body>
+</html>

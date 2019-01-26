@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>鼠标事件</title>
+</head>
+<style type="text/css">
+	#box{
+		margin: 0 auto;
+		width: 100px;
+		height: 100px;
+		background: #03ccbb;
+	}
+</style>
+<body>
+	<div id="box"></div>
+	<script type="text/javascript">
+		//绑定事件处理需要使用事件句柄
+			//事件句柄：on+事件类型
+
+		var ele = document.querySelector("#box");
+
+
+		ele.onmousewheel=ele.onwheel=function(){
+			console.log("滚轮滚动");
+		}
+
+		// ele.onmouseover=function(){
+		// 	console.log("鼠标移入");
+		// }
+		// ele.onmousemove=function(){
+		// 	console.log("鼠标移动");
+		// }
+		// ele.onmousedown=function(){
+		// 	console.log("鼠标按下");
+		// }
+		// ele.onmouseup=function(){
+		// 	console.log("鼠标抬起");
+		// }
+		// ele.onclick=function(){
+		// 	console.log("点击");
+		// }
+		// ele.onmouseout=function(){
+		// 	console.log("鼠标移出");
+		// }
+
+		// ele.ondblclick=function(){
+		// 	console.log("双击");
+		// }
+		// ele.oncontextmenu=function(){
+		// 	console.log("右击");
+		// }
+	</script>
+</body>
+</html>

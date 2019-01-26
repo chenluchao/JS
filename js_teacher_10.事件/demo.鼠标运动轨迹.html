@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>运动轨迹</title>
+	<style type="text/css">
+		img{
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/userpic.jpg"/>
+
+	<script type="text/javascript">
+		var image = document.querySelector("img");
+
+		document.onmousedown=function(){
+			var pos = [];
+			document.onmousemove=function(e){
+				e = e || event;
+				pos.push([e.clientX,e.clientY]);//存储坐标
+			}
+			document.onmouseup=function(){
+
+				document.onmousemove=null;
+				document.onmouseup=null;
+
+				var timer = setInterval(function(){
+
+					var nowpos = pos.shift();
+					//取出数组中的第一条数据，并在原数组中删除
+
+					image.style.left = nowpos[0]+"px";
+
+					image.style.top = nowpos[1]+"px";
+
+					if(!pos.length) clearInterval(timer);
+					//如果数组长度为0则清除定时器
+
+				},10);
+			}
+		}
+	</script>
+</body>
+</html>

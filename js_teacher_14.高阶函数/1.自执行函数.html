@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr = [123,function(){
+			alert("我在数组里");
+		}];
+
+		arr[1]();
+
+		var data = {
+			fn:function(){
+				alert("我在对象里");
+			}
+		}
+
+		data.fn();
+
+
+
+
+		(function(){
+			console.log(123);
+		})();
+	</script>
+</body>
+</html>

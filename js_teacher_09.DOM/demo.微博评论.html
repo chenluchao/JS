@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>微博评论</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: #323233;
+		}
+		.comm{
+			width: 600px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.status{
+			padding: 20px 20px 0;
+		}
+		.userpic{
+			float: left;
+		}
+		.comm_text{
+			overflow: hidden;
+		}
+		.userpic .img{
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			overflow: hidden;
+		}
+		.userpic .img img{
+			width: 100%;
+		}
+		.comm_text{
+			padding-left: 10px;
+		}
+		.comm_text .nickname{
+			color: #c8c8cc;
+			font-size: 14px;
+			font-weight: bold;
+			line-height: 28px;
+		}
+		.comm_text .time{
+			font-size: 12px;
+			color: #999;
+			line-height: 18px;
+		}
+		.comm_text .text{
+			color: #c8c8cc;
+			font-size: 12px;
+			line-height: 28px;
+		}
+		.funcs{
+			overflow: hidden;
+		}
+		.funcs span{
+			float: left;
+			width: 150px;
+			text-align: center;
+			line-height: 37px;
+			height: 37px;
+			overflow: hidden;
+			font-size: 12px;
+			color: #999;
+			border: solid 1px #282829;
+			border-left: none;
+			border-right: none;
+			position: relative;
+		}
+		.funcs span:after{
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 50%;
+			margin-top: -11px;
+			height: 22px;
+			width: 1px;
+			background: #19191a;
+		}
+		.funcs span:last-child:after{
+			display: none;
+		}
+		.comm_list{
+			padding: 0 20px;
+		}
+		.current_comm{
+			padding-top: 16px;
+		}
+		.custompic{
+			float: left;
+		}
+		.custompic .img{
+			width: 30px;
+			height: 30px;
+			overflow: hidden;
+		}
+		.custompic .img img{
+			width: 100%;
+		}
+		.comm_ipt{
+			overflow: hidden;
+			padding-left: 10px;
+		}
+		.comm_ipt .input input,.repeat_ipt .input input{
+			background: #4e4e52;
+			border: solid 1px #050505;
+			box-sizing: border-box;
+			width: 100%;
+			height: 30px;
+			outline: none;
+			padding: 0 10px;
+			color: #FFF;
+		}
+		.comm_ipt .button,.repeat_ipt .button{
+			overflow: hidden;
+			padding-top: 10px;
+			padding-bottom: 6px;
+		}
+		.comm_ipt .button button,.repeat_ipt .button button{
+			background: #ffc09f;
+			border-radius: 2px;
+			border: none;
+			width: 62px;
+			height: 26px;
+			color: #FFF;
+			float: right;
+		}
+		.current_comm,.comm_item{
+			padding-bottom: 10px;
+			border-bottom: solid 1px #19191a;
+
+		}
+		.comm_list{
+			background: #232324;
+			margin-bottom: -1px;
+		}
+		.comm_item{
+			padding-top: 23px;
+		}
+		.custom_comm{
+			overflow: hidden;
+			padding-left: 10px;
+		}
+		.custom_text{
+			font-size: 12px;
+			color: #c8c8cc;
+			line-height: 10px;
+		}
+		.custom_text i{
+			color: #eb6636;
+			font-style: normal;
+		}
+		.custiom_time{
+			font-size: 12px;
+			color: #999;
+			line-height: 34px;
+		}
+		.custiom_time i{
+			float: right;
+			font-style: normal;
+			font-weight: bold;
+		}
+		.repeat_ipt{
+			padding: 16px 16px 10px;
+			background: #323233;
+			display: none;
+		}
+		.repeat_ipt[data-show]{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="comm">
+		<!--<div class="status">
+			<div class="userpic">
+				<div class="img">
+					<img src="images/userpic.jpg"/>
+				</div>
+			</div>
+			<div class="comm_text">
+				<div class="nickname">日食记</div>
+				<div class="time">
+					9月28日 15:23 来自 微博 weibo.com
+				</div>
+				<div class="text">今天天气不错，挺风和日丽的！！！</div>
+			</div>
+		</div>-->
+		<!--<div class="funcs">
+			<span>收藏</span>
+			<span>转发 6413</span>
+			<span>评论 1242</span>
+			<span>赞 10789</span>
+		</div>-->
+		<div class="comm_list">
+			<div class="current_comm">
+				<!--<div class="custompic">
+					<div class="img">
+						<img src="images/custompic.jpg">
+					</div>
+				</div>-->
+				<div class="comm_ipt">
+					<div class="input">
+						<input type="text">
+					</div>
+					<div class="button">
+						<button>评论</button>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="comm_item">
+				<div class="custompic">
+					<div class="img">
+						<img src="images/userpic.jpg">
+					</div>
+				</div>
+				<div class="custom_comm">
+					<div class="custom_text">
+						<i>冰糖苦葫芦</i>：<span>超级好吃</span>
+					</div>
+					<div class="custiom_time">
+						<span>9月28日 16:57</span>
+						<i>回复</i>
+					</div>
+					<div class="repeat_ipt">
+						<div class="input">
+							<input type="text">
+						</div>
+						<div class="button">
+							<button>评论</button>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</div>
+	<script type="text/javascript">
+		var current_btn = document.querySelector(".current_comm .comm_ipt .button button");
+		var current_ipt = document.querySelector(".current_comm .comm_ipt .input input");
+		var comm_list = document.querySelector(".comm_list");
+
+		current_btn.onclick=function(){
+			if(current_ipt.value.trim()){
+				createComm(current_ipt.value);
+			}else{
+				alert("请输入评论内容");
+			}
+			current_ipt.value = "";
+		}
+
+		function createComm(str){
+			var comm_item = document.createElement("div");
+			comm_item.className = "comm_item";
+			comm_list.appendChild(comm_item);
+
+			//custompic
+			var custompic = document.createElement("div");
+			custompic.className = "custompic";
+			comm_item.appendChild(custompic);
+			var img = document.createElement("div");
+			img.className = "img"
+			custompic.appendChild(img);
+			var image = document.createElement("img");
+			image.src = "images/userpic.jpg";
+			img.appendChild(image);
+
+			//custom_comm
+			var custom_comm = document.createElement("div");
+			custom_comm.className = "custom_comm";
+			comm_item.appendChild(custom_comm);
+			var custom_text = document.createElement("div");
+			custom_text.className = "custom_text";
+			custom_comm.appendChild(custom_text);
+			var custom_text_i = document.createElement("i");
+			custom_text_i.innerHTML = "冰糖苦葫芦";
+			custom_text.appendChild(custom_text_i);
+			var custom_text_mh = document.createTextNode("：");
+			custom_text.appendChild(custom_text_mh);
+			var custom_text_span = document.createElement("span");
+			custom_text_span.innerHTML = str;
+			custom_text.appendChild(custom_text_span);
+			var custiom_time = document.createElement("div");
+			custiom_time.className = "custiom_time";
+			custom_comm.appendChild(custiom_time);
+			var custiom_time_span = document.createElement("span");
+			var date = new Date();
+			custiom_time_span.innerHTML = add0(date.getMonth()+1)+"月"+add0(date.getDate())+"日 "+add0(date.getHours())+":"+add0(date.getMinutes());
+			custiom_time.appendChild(custiom_time_span);
+			var custiom_time_i = document.createElement("i");
+			custiom_time_i.innerHTML = "回复";
+			custiom_time.appendChild(custiom_time_i);
+			var repeat_ipt = document.createElement("div");
+			repeat_ipt.className = "repeat_ipt";
+			custom_comm.appendChild(repeat_ipt);
+			var repeat_ipt_input = document.createElement("div");
+			repeat_ipt_input.className = "input";
+			repeat_ipt.appendChild(repeat_ipt_input);
+			var repeat_ipt_input_input = document.createElement("input");
+			repeat_ipt_input_input.setAttribute("type","text");
+			repeat_ipt_input.appendChild(repeat_ipt_input_input);
+			var repeat_ipt_button = document.createElement("div");
+			repeat_ipt_button.className = "button";
+			repeat_ipt.appendChild(repeat_ipt_button);
+			var repeat_ipt_button_button = document.createElement("button");
+			repeat_ipt_button_button.innerHTML = "评论"
+			repeat_ipt_button.appendChild(repeat_ipt_button_button);
+
+			custiom_time_i.onclick=function(){
+				if(repeat_ipt.getAttribute("data-show")){
+					repeat_ipt.removeAttribute("data-show");
+				}else{
+					repeat_ipt.setAttribute("data-show","show");
+				}
+			}
+			repeat_ipt_button_button.onclick=function(){
+				if(repeat_ipt_input_input.value.trim()){
+					createComm(repeat_ipt_input_input.value);
+				}else{
+					alert("请输入评论内容");
+				}
+				repeat_ipt_input_input.value = "";
+				repeat_ipt.removeAttribute("data-show");
+			}
+
+		}
+
+		function add0(num){
+			if(num<10) return "0"+num;
+			return num; 
+		}
+	</script>
+</body>
+</html>

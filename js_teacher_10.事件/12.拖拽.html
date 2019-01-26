@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>拖拽</title>
+	<style type="text/css">
+		img{
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<img width="50" height="50" src="images/userpic.jpg"/>
+	<script type="text/javascript">
+		var image = document.querySelector("img");
+		var maxW = document.documentElement.clientWidth-image.offsetWidth;
+		var maxH = document.documentElement.clientHeight-image.offsetHeight;
+		image.onmousedown=function(e){
+			e = e || event;
+			e.preventDefault?e.preventDefault():e.returnValue=false;
+			var nX = e.offsetX;//记录鼠标按下时到图片左边缘的距离
+			var nY = e.offsetY;//记录鼠标按下时到图片上边缘的距离
+			document.onmousemove=function(e){
+				e = e || event;
+				var left = e.clientX-nX;//鼠标当前x坐标-记录的x位置
+				var top = e.clientY-nY;//鼠标当前y坐标-记录的y位置
+				// if(left>maxW){//元素位置大于最大值
+				// 	left = maxW;
+				// }else if(left<0){//元素位置小于最小值
+				// 	left = 0;
+				// }
+				// if(top>maxH){//元素位置大于最大值
+				// 	top = maxH;
+				// }else if(top<0){//元素位置小于最小值
+				// 	top = 0;
+				// }
+				left = Math.max(0,Math.min(left,maxW));
+				top = Math.max(0,Math.min(top,maxH));
+				image.style.left = left+"px";
+				image.style.top = top+"px";
+			}
+			document.onmouseup=function(){
+				document.onmousemove = null;
+			}
+		}
+	</script>
+</body>
+</html>

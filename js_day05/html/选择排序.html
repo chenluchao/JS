@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a=[1,2,5,6,9,4,7,3,8];
+			for(var i=0;i<a.length-1;i++){
+				for(var j=i+1;j<a.length;j++){
+					if(a[i]>a[j]){
+						var num=a[i];
+						a[i]=a[j];
+						a[j]=num;
+					}
+				}
+			}
+			alert(a);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>更改1</p>
+	<script>
+		var a = 5;
+		function fn(){
+			alert(a);//undefined
+			var a = 10;
+			alert(a);//10
+		}
+		fn();
+		alert(a);//5
+		
+		var arr = [1,2,3,4,5,6];
+
+		/*
+			shift();
+			pop();
+			splice(3,1);
+		*/
+
+		var str = "2017-12-14";
+		//[2017,12,14];
+
+		str.split("-");
+
+		var timer = setInterval();
+		clearInterval(timer);
+
+
+		ele.addEventListener("click",function(){},false);
+
+		ele.attachEvent("onclick",function(){});
+
+		/*
+			var xhr = new XMLHttpRequest();
+
+			xhr.open("get",url,true);
+
+			xhr.send();
+
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){
+						...
+					}
+				};
+			}
+
+
+			封装 继承 多态
+
+			call apply
+		*/
+	</script>
+</body>
+</html>

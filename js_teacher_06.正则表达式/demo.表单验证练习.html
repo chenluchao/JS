@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#big{
+				margin: 50px auto;
+				width: 500px;
+				height: 600px;
+			}
+			#input{
+				position: relative;
+				margin: 10px 0;
+			}
+			#input input{
+				width: 200px;
+				height: 25px;
+				outline: 0;
+				border: 1px solid yellow;
+			}
+			#input p{
+				position: absolute;
+				top: 0;
+				width: 300px;
+				left: 220px;
+				line-height: 30px;
+				color: cyan;
+			}
+			#butt input{
+				width: 204px;
+				height: 30px;
+				color: brown;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="big">
+			<div id="input">
+				<input type="text" name="ip1" id="ip1" placeholder="请输入账户" />
+				<p>6-21位数字字母下划线，不能以数字开头</p>
+			</div>
+			<div id="input">
+				<input type="password" name="ip1" id="ip2" placeholder="请输入密码" />
+				<p>6-21位密码</p>
+			</div>
+			<div id="input">
+				<input type="text" name="ip1" id="ip3" placeholder="请输入邮箱" />
+				<p>如：807996636@qq.com</p>
+			</div>
+			<div id="input">
+				<input type="text" name="ip1" id="ip4" placeholder="请输入个人主页" />
+				<p>http或https开头，如：http://www.baidu.com</p>
+			</div>
+			<div id="input">
+				<input type="text" name="ip1" id="ip5" placeholder="请输入手机号" />
+				<p>11位数字</p>
+			</div>
+			<div id="input">
+				<input type="text" name="ip1" id="ip6" placeholder="请输入身份证号" />
+				<p>请输入正确的身份证号</p>
+			</div>
+			<div id="butt">
+				<input type="button" onclick="fn()" name="" id="" value="点击验证" />
+			</div>
+		</div>
+		<script type="text/javascript">
+			function fn(){
+				//账户
+				if(!(/^[A-Za-z_][\dA-Za-z_]{5,20}$/.test(ip1.value))){
+					alert("账户错误");
+				}else if(!(/^.{6,21}$/.test(ip2.value))){
+					alert("密码错误");
+				}else if(!(/^\w+@[A-Za-z-\d]+\.[A-Za-z]{2,4}$/.test(ip3.value))){
+					alert("邮箱错误");
+				}else if(!(/^(http[s]?:\/\/)?[A-Za-z\d-]+\.[A-Za-z]{2,4}$/.test(ip4.value))){
+					alert("网址错误");
+				}else if(!(/^1[3-9]\d{9}$/.test(ip5.value))){
+					alert("电话错误");
+				}else if(!(/^\d{17}[\dxX]{1}$/.test(ip6.value))){
+					alert("身份证错误");
+				}else{
+					alert("验证成功");
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		button{
+			width: 200px;
+			height: 40px;
+			border: solid 2px #03ccbb;
+			background: #F90;
+			color: #FFF;
+			font-weight: bold;
+			outline: none;
+		}
+		button.active{
+			border-color: #F90;
+			background: #03ccbb;
+		}
+	</style>
+</head>
+<body>
+	<button>按钮</button>
+
+	<script>
+		var btn = document.getElementsByTagName("button")[0];
+		
+		btn.onclick=function(){
+			if(this.className == ""){
+				this.className = "active";
+			}else{
+				this.className = "";
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var str = (Math.floor(Math.random()*9)+1).toString();
+
+		for(var i=0; i<11; i++){
+			str += Math.floor(Math.random()*10);
+		}
+
+		var ji = 0;
+		var ou = 0;
+
+		for(var i=0; i<str.length; i++){
+			if(i%2==1){
+				ou += parseInt(str.charAt(i));
+			}else{
+				ji += parseInt(str.charAt(i));
+			}
+		}
+
+		var num = 10-(ji+ou*3)%10
+
+		if(num==10){
+			num = 0;
+		}
+
+		console.log(str+num);
+	</script>
+</body>
+</html>

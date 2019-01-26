@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a={
+				name:"张三",
+				age:18,
+				sex:"男",
+				friend:{
+					name:"Sarry",
+					age:19,
+					sex:"女"
+				}
+			};
+			function Person(name,age,sex){
+				this.name=name;
+				this.age=age;
+				this.sex=sex;
+			}
+			Person.prototype.sayName=function(){
+				console.log(this.name);
+			}
+			function Chinese(name,age,sex,language){
+				Person.apply(this,arguments);
+				this.language=language;
+			}
+//			Chinese.prototype=new Person();
+//			Chinese.prototype.constructor=Chinese;
+//			for(var attr in Person){
+//				Chinese.prototype[attr]=Person.prototype[attr]
+//			}
+
+		function deep(o1,o2){
+			
+		
+			for(var attr in o2){
+				if(typeof o2[attr]=="object"){
+					o1[attr]=o2[attr] instanceof Array ? []:{}
+					deep(o1[attr],o2[attr])
+				}else{
+					o1[attr]=o2[attr]
+				}
+			}
+			return o1;
+		}
+		var xiaohong = {
+		language:"english"
+		};
+
+
+		deep(xiaohong,a);
+
+			
+//			var chinese=new Chinese("张胜男",20,"女");
+			console.log(xiaohong);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		var fn1 = function(){
+			alert(123);
+		}
+		var fn2 = function(){
+			alert(789);
+		}
+		var fn3 = function(){
+			alert(456);
+		}
+		/*$(document).click(fn1);
+		$(document).click(fn2);
+
+		$(document).contextmenu(function(){
+			alert(456);
+		});*/
+
+		$(document).bind('click',fn1);
+		$(document).bind('click',fn2);
+
+		$(window).bind('click',fn3);
+
+		//$(document).unbind('click',fn2);
+		//off同理
+
+		//$(document).off('click',fn1);
+
+		//$(document).trigger('click');//冒泡
+		$(document).triggerHandler('click');//不会冒泡
+
+	</script>
+</body>
+</html>

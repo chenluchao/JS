@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>删除购物车中的商品</title>
+</head>
+<body>
+	<div class="car">
+		<ul>
+			<li>
+				<strong>经典款老干妈1</strong>￥<i>8.8</i>/瓶
+				<button>×</button>
+			</li>
+			<li>
+				<strong>经典款老干妈2</strong>￥<i>8.8</i>/瓶
+				<button>×</button>
+			</li>
+			<li>
+				<strong>经典款老干妈3</strong>￥<i>8.8</i>/瓶
+				<button>×</button>
+			</li>
+			<li>
+				<strong>经典款老干妈4</strong>￥<i>8.8</i>/瓶
+				<button>×</button>
+			</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		var btns = document.querySelectorAll(".car ul li button");
+
+		for(var i=0; i<btns.length; i++){
+			btns[i].onclick=function(){
+				this.parentNode.parentNode.removeChild(this.parentNode)
+			}
+		}
+	</script>
+</body>
+</html>

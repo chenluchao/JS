@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+		递归的条件：
+			1、递归的出口
+			2、递归条件
+			3、递归条件趋近出口
+		*/
+		function age(n){
+			if(n==1){
+				return 15;
+			}else{
+				return age(--n)+1;
+			}
+		}
+
+		console.log(age(5));
+
+		/*
+			19;
+			18+1;
+			17+1+1;
+			16+1+1+1;
+			15+1+1+1+1;
+		*/
+
+	</script>
+</body>
+</html>

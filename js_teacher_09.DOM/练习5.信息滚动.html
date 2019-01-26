@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.info{
+			margin: 30px auto;
+			width: 300px;
+			border: solid 1px #03ccbb;
+			overflow: hidden;
+			height: 309px;
+		}
+		.info ul{
+			width: 300px;
+			overflow: hidden;
+			position: relative;
+			left: 0;
+			top: 0;
+		}
+		.info ul.move{
+			top:-31px;
+			transition: top 0.5s linear;
+		}
+		.info li{
+			line-height: 30px;
+			height: 30px;
+			overflow: hidden;
+			font-size: 14px;
+			padding: 0 10px;
+			border-bottom: dashed 1px #03ccbb;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="info">
+		<ul>
+			<li>这是一条展示信息1</li>
+			<li>这是一条展示信息2</li>
+			<li>这是一条展示信息3</li>
+			<li>这是一条展示信息4</li>
+			<li>这是一条展示信息5</li>
+			<li>这是一条展示信息6</li>
+			<li>这是一条展示信息7</li>
+			<li>这是一条展示信息8</li>
+			<li>这是一条展示信息9</li>
+			<li>这是一条展示信息10</li>
+			<li>这是一条展示信息11</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var eul=document.querySelector('.info ul');
+		
+		setInterval(function(){
+			
+			eul.className='move';
+			
+			setTimeout(function(){
+				eul.className="";
+				eul.appendChild(eul.children[0])
+			},500)
+			
+		},2000)
+	</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var pros = [{
+			name:"联想",
+			price:3999
+		},{
+			name:"戴尔",
+			price:4999
+		},{
+			name:"华硕",
+			price:6999
+		},{
+			name:"Mac",
+			price:3001
+		},{
+			name:"惠普",
+			price:1999
+		}];
+
+		var newPros = pros.filter(function(ele){
+			return ele.price>=3000 && ele.price<=5000
+		});
+
+		console.log(newPros);
+	</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input id="money" type="text" placeholder="请投币">
+	<select id="drink">
+		<option value="雪碧">雪碧</option>
+		<option value="加多宝">加多宝</option>
+		<option value="王老吉">王老吉</option>
+		<option value="和其正">和其正</option>
+		<option value="脉动">脉动</option>
+	</select>
+	<button onclick="buy()">出货</button>
+
+	<script>
+		function buy(){
+			if(checkMoney(money.value)){//如果是真钞
+				var drinkMuch = much(drink.value);//计算饮品钱数
+				if(money.value>=drinkMuch){
+					alert("这是您的"+drink.value);
+					alert("找您"+payback(money.value,drinkMuch)+"元");
+				}else{
+					alert("请继续投币");
+					return;
+				}
+			}else{//如果是假钞
+				alert("请投真钞");
+			}
+			money.value = "";
+		}
+
+
+
+		function checkMoney(m){//验钞
+			if(m==1||m==5||m==10||m==20){
+				return true;
+			}
+			return false;
+		}
+
+		function much(d){//通过饮品确定钱数
+			switch(d){
+				case "雪碧":
+					return 1;
+				case "加多宝":
+					return 4;
+				case "王老吉":
+					return 5;
+				case "和其正":
+					return 7;
+				case "脉动":
+					return 8;
+			}
+		}
+		function payback(p,m){//计算找零
+			return p-m;
+		}
+	</script>
+</body>
+</html>

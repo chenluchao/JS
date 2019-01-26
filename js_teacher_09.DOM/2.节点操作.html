@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="list">
+		<li>01</li>
+		<li>02</li>
+		<li>03</li>
+		<li>04</li>
+		<li>05</li>
+	</ul>
+	<script>
+		/*html
+			childNodes：获取所有子节点
+			nodeType：节点类型
+
+			nextSibling：获取下一个同胞节点
+			previousSibling：获取下一个同胞节点
+
+			parentNode：获取父节点
+		*/
+		var nodeList = list.childNodes;
+		console.log(nodeList,"HTML DOM");
+
+		for(var i=0; i<nodeList.length; i++){
+			if(nodeList[i].nodeType == 1){
+				nodeList[i].style.background = "red";
+			}
+		}
+
+
+		var eles = list.children;//IE8以下会识别注释节点
+		console.log(eles,"XML DOM");
+	</script>
+</body>
+</html>

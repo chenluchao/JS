@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="move.js"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			.menu{
+				width: 1000px;
+				height: 30px;
+				margin: 0 auto;
+				background: #FF9900;
+			}
+			.menu ul{
+				width: 100%;
+				overflow: hidden;
+			}
+			.menu ul li{
+				line-height: 30px;
+				float: left;
+				padding: 0 20px;
+				margin: 0 50px;
+				font-size: 14px;
+				color: #FFF;
+			}
+			.menu ul li.active{
+				background: #F60;
+			}
+			.submenu{
+				height: 0px;
+				overflow: hidden;
+				position: relative;
+			}
+			.submenu p{
+				width: 100%;
+				height: 300px;
+				background-color: #03CCBB;
+				text-align: center;
+				color: #FFFFFF;
+				font-size: 100px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 0;
+			}
+			.submenu p.active{
+				z-index: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="menu">
+			<ul>
+				<li class="active">首页</li>
+				<li>关于我们</li>
+				<li>联系我们</li>
+				<li>新闻资讯</li>
+				<li>加入我们</li>
+			</ul>
+			<div class="submenu">
+				<p>首页</p>
+				<p>关于我们</p>
+				<p>联系我们</p>
+				<p>新闻资讯</p>
+				<p>加入我们</p>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var menu=document.querySelector(".menu");
+			var ul=document.querySelector(".menu ul");
+			var submenu=document.querySelector(".submenu");
+			ul.onmouseenter=function(e){
+				e=e||window.event;
+				var target=e.target||e.srcElement;
+				console.log(target);
+//				if(this==target) return;
+				move(submenu,{
+					height:300
+				},100)
+			}
+//			menu.onmouseleave=function(){
+//				move(submenu,{
+//					height:0
+//				},100)
+//			}
+		</script>
+	</body>
+</html>

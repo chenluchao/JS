@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var mima=document.getElementById('pas');
+				var qian=document.getElementById('money');
+				var bu=document.getElementById('but');
+				bu.onclick=function(){
+					if(mima.value == 111){
+						if(parseInt(qian.value)>=3000){
+							alert("钱不够");
+						}
+						else if(parseInt(qian.value)==0||qian.value==''){
+							alert('请输入正确的钱数');
+						}
+						else{
+							alert('取钱成功'+qian.value);
+						}
+					}
+					else{
+						alert('密码错误');
+					}
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<input type="text" name="pas" id="pas" />
+		<input type="text" name="money" id="money"  />
+		<input type="button" name="but" id="but" value="取钱" />
+	</body>
+</html>

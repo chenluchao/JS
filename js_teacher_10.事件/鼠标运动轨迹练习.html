@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>鼠标运动轨迹</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			img{
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="images/userpic.jpg"/>
+		<script type="text/javascript">
+			var img = document.querySelector("img");
+			
+			document.onmousedown=function(){
+				var pos=[];
+				document.onmousemove=function(e){
+					e=e||window.event;
+					pos.push([e.clientX,e.clientY]);
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+					var timer=setInterval(function(){
+						var nowpos=pos.shift();
+						img.style.left=nowpos[0]+"px";
+						img.style.top=nowpos[1]+"px";
+						if(!pos.length){
+							clearInterval(timer);
+						}
+					},10);
+					
+				}
+			}
+		</script>
+	</body>
+</html>

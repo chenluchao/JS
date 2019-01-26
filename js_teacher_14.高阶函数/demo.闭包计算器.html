@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function calc(num){
+			return {
+				jia:function(a){
+					return num+=a;
+				},
+				jian:function(a){
+					return num-=a;
+				},
+				cheng:function(a){
+					return num*=a;
+				},
+				chu:function(a){
+					return num/=a;
+				}
+			}
+		}
+
+		var foo = calc(10);
+
+		console.log(foo.jia(2));//12
+		console.log(foo.jian(8));//4
+		console.log(foo.cheng(12));//48
+		console.log(foo.chu(6));//8
+	</script>
+</body>
+</html>

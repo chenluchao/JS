@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>js运动原理</title>
+	<style type="text/css">
+		.moveColor{
+			background: #03ccbb;
+			border-radius: 50%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+	<style type="text/css">
+		.box{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: #03ccbb;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script type="text/javascript">
+		/*
+			定时器
+			终点
+			速度
+		*/
+		var ele = document.querySelector(".box");
+
+		var timer = setInterval(function(){
+			if(ele.offsetLeft >= 1009){
+				clearInterval(timer);
+			}else{
+				ele.style.left = ele.offsetLeft+10+"px";
+			}
+		},10);
+	</script>
+</body>
+</html>

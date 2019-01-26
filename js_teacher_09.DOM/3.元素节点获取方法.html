@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box" id="box">
+		<ul>
+			<li>01</li>
+			<li>02</li>
+			<li>03</li>
+			<li>04</li>
+			<li>
+				<ul>
+					<li>06</li>
+					<li>07</li>
+					<li>08</li>
+					<li>09</li>
+					<li>10</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="box">
+		<ul>
+			<li>06</li>
+			<li>07</li>
+			<li>08</li>
+			<li>09</li>
+			<li>10</li>
+		</ul>
+	</div>
+
+	<script>
+		var ele = document.getElementById("box");
+
+		var lis = ele.getElementsByTagName("li");
+
+		var boxs = document.getElementsByClassName("box");
+
+		var li = document.querySelectorAll("#box>ul>li");
+
+		console.log(ele);
+		console.log(lis);
+		console.log(boxs);
+		console.log(li);
+
+
+		/*
+			getElementById(ID名);
+				通过ID获取元素
+			getELementsByTagName(标记名);
+				通过标记名获取元素集合
+			getElementsByName(name);
+				通过name属性获取元素集合
+				只针对表单元素
+			getElementsByClassName(类名);
+				通过类名获取元素集合
+				IE8以下不支持
+
+			querySelector(选择器);
+				通过选择器选择某个元素
+			querySelectorAll(选择器);
+				通过选择器选择元素集合
+		*/
+	</script>
+</body>
+</html>

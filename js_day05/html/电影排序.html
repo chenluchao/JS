@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.movies{
+				width: 850px;
+				margin: 20px auto;
+				background-color: #ccc;
+			}
+			#movies_list{
+				margin: 10px 0;
+				overflow: hidden;
+			}
+			#movies_list .movie{
+				float: left;
+				width: 160px;
+				height: 220px;
+				overflow: hidden;
+				margin: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="movies">
+			<div class="buts">
+				<button onclick="sortmovie(1)">升序排序</button>
+				<button onclick="sortmovie(0)">降序排序</button>
+				<button onclick="sortmovie(2)">id大于50的</button>
+			</div>
+			<div id="movies_list"></div>
+		</div>
+		<script type="text/javascript" src="../js/movies.js"></script>
+		<script type="text/javascript">
+			function createHtml(){
+				movies.forEach(function(ele,index){
+					movies_list.innerHTML +='<div class="movie"><img src="'+ele.logo_url+'"/></div>'
+				});
+			}
+			createHtml()
+			
+			function sortmovie(b){
+				if(b){
+					if(b==1){
+						movies.sort(function(a,b){
+							return a.id-b.id;
+						});
+					}else if(b == 2){
+						movies= movies.filter(function(ele){
+							return ele.id>50;
+						});
+					}
+				}
+				else{
+					movies.sort(function(a,b){
+						return b.id-a.id;
+					});
+				}
+				movies_list.innerHTML="";
+				createHtml();
+			}
+		</script>
+	</body>
+</html>

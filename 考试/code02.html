@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var a = 10;
+		(function(a){
+			alert(a);//10  //函数传参
+			a=20;	//将局部变量a设置为20
+			alert(a);//20  //局部变量访问
+		})(a)
+		alert(a);//10  //全局变量访问
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//使用new关键字调用任何一个函数时，这个函数就被称为构造函数。
+
+		var obj = {
+			name:"Sarry",
+			age:18
+		};//对象的字面量
+
+		var obj1 = new Object();//使用构造函数创建对象。
+
+		//通过.操作符为对象添加属性
+		obj1.name = "Jhon";
+
+		obj1.age = "40";
+
+		obj1.sex = "女";
+
+		obj.sex = "男";
+
+		//通过[]操作符为对象添加属性，[]内的数据类型为字符串
+
+		obj["height"] = "187";
+
+		obj1["height"] = "190";
+
+		console.log(obj,obj1);
+
+
+		//为对象添加方法
+		//当前方法被谁调用，this就指向谁。
+
+		obj.sayName = function(){
+			alert(this.name);
+		}
+
+		obj1.sayName = obj.sayName;
+
+
+		//属性的访问
+		console.log(obj.sex);
+		console.log(obj1.age);
+
+		obj.sayName();
+
+		obj1.sayName();
+
+	</script>
+</body>
+</html>

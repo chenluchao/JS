@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="movies"></div>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		/*$.ajax("http://maoyan.alipapa.vip/movie",{
+			method:"get",
+			async:true,
+			cache:false
+			success:function(data){
+				console.log(data);
+			}
+		});*/
+
+		//发送请求，接收数据
+		$.ajax({
+			url:"http://localhost:3000/users/login",//请求地址
+			type:"get",//请求方式
+			async:true,//是否异步
+			cache:false,//不使用缓存
+			headers:{//请求头
+				"Content-Type":"application/json"
+			},
+			data:{//参数
+				page:2
+			},
+			context:$(".movies"),
+			//各回调中this的指向，不设置context，回调中的this将指向deferred对象
+			dataType:"json",//规定接收的数据格式
+			beforeSend:function(xhr){//发送之前的回调
+				console.log(xhr.readyState);
+				console.log(this);
+			},
+			success:function(data){//成功回调
+				console.log(data);
+				console.log(this);
+			},
+			error:function(xhr){//失败回调
+				console.log(xhr.status)
+				console.log(this);
+			},
+			complete:function(xhr){//完成回调
+				console.log(xhr.status)
+				console.log(this);
+			}
+		});
+
+
+	</script>
+</body>
+</html>

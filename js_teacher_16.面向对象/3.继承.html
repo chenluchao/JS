@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function Person(name,age,sex){//人 类
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+		}
+		Person.prototype.speak=function(){
+			console.log("ji li gu lu");
+		}
+
+		function Chinese(name,age,sex,language){
+			//借用构造函数Person
+			Person.call(this,name,age,sex);//构造函数继承
+			this.language = language;
+		}
+
+		//子类的原型指向父类的实例
+		Chinese.prototype = new Person();
+		Chinese.prototype.constructor = Chinese;
+
+		Chinese.prototype.pay=function(){
+			console.log("打开支付宝");
+		}
+
+		function PekingMan(name,age,sex,language,hairColor){
+			Chinese.apply(this,arguments);
+			this.hairColor = hairColor;
+		}
+
+		PekingMan.prototype = new Chinese();
+		PekingMan.prototype.constructor = PekingMan;
+
+		PekingMan.prototype.goBird = function(){
+			console.log("遛鸟");
+		}
+
+		var pekingman = new PekingMan("玄烨",100,"男","满语","黑色");
+
+		console.log(pekingman);
+	</script>
+</body>
+</html>

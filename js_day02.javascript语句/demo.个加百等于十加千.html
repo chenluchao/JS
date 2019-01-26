@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		for(var i=1000; i<10000; i++){
+			if(i%2){//678.9
+				var ge = i%10;
+				var shi = parseInt(i/10)%10;
+				var bai = parseInt(i/100)%10;
+				var qian = parseInt(i/1000);
+
+				if(ge+bai == shi+qian){
+					console.log(i);
+				}
+			}
+		}
+	</script>
+</body>
+</html>

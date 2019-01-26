@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>运动综合练习</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				left: 0;
+				top: 50px;
+				border-radius: 50%;
+				background: #03CCBB;
+			}
+		</style>
+	</head>
+	<body>
+		<button>按钮</button>
+		<div class="box">
+			<p>欢迎</p>
+		</div>
+		<script type="text/javascript">
+			var ele=document.querySelector(".box");
+			var btn=document.querySelector("button");
+			btn.onclick=function(){
+				move(ele,{
+					left:1000,
+					top:500,
+					fontSize:50,
+					marginTop:10
+				},500);
+			}
+			
+			function move(ele,props,duration){
+				if(ele.timer)return;//如果已有定时器打开，直接返回不再打开定时器
+				
+				var starts={};
+				for(var attr in props){
+					starts[attr]=parseInt(getStyle(ele)[attr]);
+				}
+				
+				var totals={};
+				for(var attr in props){
+					totals[attr]=props[attr]-starts[attr];
+				}
+				
+				var starttime=new Date();
+				ele.timer=setInterval(function(){//使用ele.timer避免打开多余的定时器即使得打开的定时器唯一
+					var scale=(new Date()-starttime)/duration;
+					if(scale>=1){
+						scale=1;
+						clearInterval(ele.timer);
+						ele.timer=null;//将定时器的序号清空以便下次定时器打开时重新开始编号
+						//注：定时器的编号从1开始
+					}
+					for(var attr in props){
+						ele.style[attr]=starts[attr]+totals[attr]*scale+"px";
+					}
+				},10)
+			}
+			
+			function getStyle(ele){
+				return window.getComputedStyle?window.getComputedStyle(ele,false):ele.currentStyle;
+			}
+		</script>
+	</body>
+</html>

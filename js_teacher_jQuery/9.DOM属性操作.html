@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<input type="text">
+	<button id="btn">按钮</button>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		/*
+			.attr/.prop
+				一个参数是获取，两个参数是设置
+
+				attr内部原理：
+					setAttribute/getAttribute去设置或者获取DOM属性节点
+
+				prop内部原理：
+					相当于通过.操作符设置对象属性。
+		*/
+		$('input').attr("disabled","true");
+
+		$("input").prop('disabled',"true");
+
+		console.log($('input').attr('disabled'));
+		console.log($('input').prop('disabled'));
+
+
+
+
+		// btn.setAttribute('disabled',"");//相当于.attr
+
+		// btn.disabled = "";//相当于.prop
+	</script>
+</body>
+</html>

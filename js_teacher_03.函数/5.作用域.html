@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+			作用域：变量的有效范围
+				全局变量拥有全局作用域
+				局部变量拥有局部作用域
+		*/
+		var a = 10;//全局变量
+
+		function fn(){
+			var b = 20;//局部变量
+			//var a = 30;
+			alert(a);//访问全局变量
+		}
+		function foo(){
+			alert(b);//报错：b is not defined
+		}
+		fn();
+
+		//foo();
+
+		alert(a);
+	</script>
+</body>
+</html>

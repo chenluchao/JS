@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+			函数调用自身的编程技巧称为递归。
+
+			递归的条件：
+				1、递归的出口
+				2、递归条件
+				3、递归条件趋近出口
+
+			大部分使用递归完成的任务，都可以使用for代替。
+		*/
+
+		function fn(){
+			//alert(123);
+			console.log(123);
+			fn();
+		}
+
+		fn();
+	</script>
+</body>
+</html>

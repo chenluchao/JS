@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		for(var i=1; i<=100; i++){//外层循环负责打印1~100之间所有数字
+			var bool = true;//默认认为当前数字为质数
+			for(var j=2; j<i; j++){//检测是否有因数
+				if(i%j==0){
+					bool = false;
+					break;
+				}
+			}
+			if(bool){
+				console.log(i);
+			}
+		}
+	</script>
+</body>
+</html>

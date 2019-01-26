@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body{
+		text-align: center;
+	}
+		img{
+			width: 520px;
+			height: 280px;
+		}
+	</style>
+</head>
+<body>
+	<img id="hdp" src="images/1.jpg" alt="">
+
+	<script>
+		var aSrc = ["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg"];
+		var img = document.querySelector("#hdp");
+
+		var index = 0;
+
+		setInterval(function(){
+
+			index++;
+			
+			if(index == aSrc.length){
+				index = 0;
+			}
+
+			img.setAttribute("src",aSrc[index]);
+
+		},500);
+	</script>
+</body>
+</html>

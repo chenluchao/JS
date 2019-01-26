@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>事件代理</title>
+</head>
+<body>
+	<ul>
+		<li>01</li>
+		<li>02</li>
+		<li>03</li>
+		<li>04</li>
+		<li>05</li>
+	</ul>
+
+	<script type="text/javascript">
+		//事件代理，事件委托
+		//将事件处理绑定给父元素，当子元素触发事件时，会冒泡到父元素，从而调用父元素的事件处理
+
+		var ul = document.querySelector("ul");
+
+		ul.onclick=function(e){
+			//容错判断
+			e = e || window.event;
+			var target = e.target || e.srcElement;
+			if(this == target) return;
+
+			console.log(target);
+		}
+
+	</script>
+</body>
+</html>

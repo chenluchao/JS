@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.tab{
+			width: 100px;
+			height: 100px;
+			background: #03ccbb;
+			margin: 10px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="tab"></div>
+	<div class="tab"></div>
+	<div class="tab"></div>
+	<div class="tab"></div>
+	<div class="tab"></div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.extend.js"></script>
+	<script>
+		$.fn.extend({
+			tab:function(selector){
+				selector = selector || "active";
+				this.each(function(index,ele){
+					console.log(ele);
+				});
+			}
+		});
+
+		$.fn.slider=function(){
+
+		}
+
+
+		$(".tab").tab(selector);
+	</script>
+</body>
+</html>

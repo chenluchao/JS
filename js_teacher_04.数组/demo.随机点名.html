@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 200px;
+			margin: 0 auto;
+		}
+		.box p,.box button{
+			width: 100%;
+			border: none;
+		}
+		.box p{
+			border: solid 2px #03ccbb;
+			box-sizing: border-box;
+			line-height: 30px;
+			text-align: center;
+		}
+		.box button{
+			background: #F90;
+			height: 30px;
+			margin-top: 5px;
+			color: #FFF;
+			outline:none;
+			cursor: pointer;
+		}
+		.box button:active{
+			line-height: 35px;
+		}
+		.name_list{
+			margin: 20px;
+			text-align: center;
+		}
+		.name_list span{
+			display: inline-block;
+			height: 30px;
+			background: deepskyblue;
+			line-height: 30px;
+			color: #FFF;
+			font-size: 14px;
+			padding: 0 15px;
+			border-radius: 5px;
+			margin: 0 4px;
+		}
+	</style>
+</head>
+<body>
+	<div class="name_list" id="name_list">
+	</div>
+	<div class="box">
+		<p id="uname">随机点名</p>
+		<button onclick="dm()">开始点名</button>
+	</div>
+
+	<script>
+		var arr = ["珍妮","丹妮","李明","韩梅梅","马冬梅","李雷"];
+
+		for(var i=0; i<arr.length; i++){
+			name_list.innerHTML += "<span>"+arr[i]+"</span>";
+		}
+
+		function dm(){
+
+			var index = Math.floor(Math.random()*arr.length);
+
+			uname.innerHTML = arr[index];
+
+		}
+
+	</script>
+</body>
+</html>

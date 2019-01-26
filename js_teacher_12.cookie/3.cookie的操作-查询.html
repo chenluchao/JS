@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//name
+
+		//console.log(document.cookie);//取出整个cookie
+
+		var cookies = document.cookie.split("; ");//cookie数组
+
+		for(var i=0; i<cookies.length; i++){//遍历cookie数组
+
+			var acook = cookies[i].split("=");
+			//将单条cooke拆成数据数组
+			
+			if(acook[0]=="age"){//判断数据数组中的数据名是否匹配
+				console.log(acook[1]);//如果匹配则打印cookie值
+				break;
+			}
+		}
+	</script>
+</body>
+</html>

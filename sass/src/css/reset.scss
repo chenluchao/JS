@@ -1,0 +1,26 @@
+$basecolor:#03ccbb !default;
+html{
+	margin:0;
+	padding: 0;
+}
+body{
+	@extend html;
+	color: #03ccbb;
+}
+b{
+	font-weight:normal;
+}
+h1,h2,h3,h4,h5,h6{
+	@extend html;
+	@extend b;
+}
+i{
+	font-style:normal;
+}
+input,button{
+	@extend html;
+}
+ul,li,ol,dl,dt,dd{
+	@extend html;
+	list-style: none;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function fn(str,start,end){
+				var star="";
+				for(var i=0;i<str.length-start-end;i++){
+					star+="*";
+				}
+				return str.substr(0,start)+star+str.slice(-end);
+			}
+			console.log(fn('254862544896561253',6,4));
+		</script>
+	</body>
+</html>

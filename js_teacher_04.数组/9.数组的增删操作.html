@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+			.push() 结尾添加
+			.pop()  结尾删除一个元素
+			.unshift()  开头添加
+			.shift()	开头删除一个元素
+
+			.splice(起始位置,删除元素的个数,需要添加的元素...) 任意位置添加或删除元素
+		*/
+
+		var arr = ["a","b","f","c","d","e"];
+
+		console.log(arr.push("z","x"));//返回值：数组长度
+
+		console.log(arr.pop());//返回值：删除的元素
+
+		console.log(arr.unshift("w","v"));//返回值：数组长度
+
+		console.log(arr.shift());//返回值：删除的元素
+
+		arr.splice(3,1,"q","w","e");
+
+		console.log(arr);
+	</script>
+</body>
+</html>

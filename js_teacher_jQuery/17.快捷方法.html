@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		
+		$.get("http://qijianhong.cn/login",{
+			username:"qijianhong",
+			password:"123456"
+		},function(data){
+			console.log(data);
+		},"json");
+
+		//$.getJSON与$.get用法类似，只是少一个dataType参数
+
+		//$.getScript 加载远程脚本并执行，不需要远程必须是js文件类型
+
+		$.post("http://qijianhong.cn/regist",{
+			username:"椰子汁",
+			password:"yzz",
+			nickname:"泰式生榨",
+			phone:"15910661015"
+		},function(data){
+			console.log(data);
+		});
+
+		$.ajax({
+			type:"post",
+			url:"http://qijianhong.cn/regist",
+			contentType:"application/json",
+			data:{
+				username:"椰子汁",
+				password:"yzz",
+				nickname:"泰式生榨",
+				phone:"15910661015"
+			},
+			success:function(data){
+				console.log(data);
+			}
+		})
+
+		$(document).ajaxError(function(){//全局事件处理
+		})
+	</script>
+</body>
+</html>

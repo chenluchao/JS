@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	/*
+		将函数a当做参数传递到函数b中，然后在函数b中运行，函数a就称为回调函数。
+	*/
+		function fn(foo){//参数为一个函数
+
+			foo();
+
+		}
+
+		fn(function(){
+			alert(123);
+		});
+	</script>
+</body>
+</html>

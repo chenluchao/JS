@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+		/*
+			当前函数被谁调用，this就指向谁
+			匿名函数中的this指向全局对象。
+		*/
+
+		(function(){
+			console.log(this);
+		})();
+
+		function fn(){
+			console.log(this);
+		}
+
+		fn();//this指向window
+
+		var obj = {};
+
+		obj.foo = fn;
+
+		obj.foo();//this指向obj
+
+
+		document.onclick=function(){//当前事件处理属于谁，this就指向谁
+			console.log(this);
+		}
+
+		document.onclick();
+
+
+
+
+
+	</script>
+</body>
+</html>

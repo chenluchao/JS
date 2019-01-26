@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>自定义右键菜单</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 2000px;
+			height: 3000px;
+		}
+		.contextmenu{
+			position: fixed;
+			width: 180px;
+			border: solid 1px #03ccbb;
+			background: #F90;
+			left: -1000px;
+			top: 0;
+		}
+		.contextmenu dt{
+			background: #03ccbb;
+			line-height: 30px;
+			text-indent: 1em;
+			color: #FFF;
+			font-size: 14px;
+		}
+		.contextmenu dd{
+			line-height: 28px;
+			font-size: 12px;
+			border-bottom:solid 1px #03ccbb;
+			color: #FFF;
+			font-weight: bold;
+			text-indent: 2em;
+			cursor: pointer;
+		}
+		.contextmenu dd:last-child{
+			border:none;
+		}
+	</style>
+</head>
+<body>
+	<dl class="contextmenu">
+		<dt>请选择功能</dt>
+		<dd>功能1</dd>
+		<dd>功能2</dd>
+		<dd>功能3</dd>
+		<dd>功能4</dd>
+		<dd>功能5</dd>
+	</dl>
+	<script type="text/javascript">
+		var menu = document.querySelector(".contextmenu");
+		var maxW = document.documentElement.clientWidth-menu.offsetWidth;
+		var maxH = document.documentElement.clientHeight-menu.offsetHeight;
+		document.oncontextmenu=function(e){
+			e = e||event;
+			e.preventDefault?e.preventDefault():e.returnValue=false;//阻止默认行为
+			var left = e.clientX;
+			var top = e.clientY;
+
+			if(left>maxW) left=maxW;
+			if(top>maxH) top=maxH;
+
+			//设置menu样式
+			menu.style.left = left+"px";
+			menu.style.top = top+"px";
+		}
+
+		document.onclick=function(){
+			menu.style.left = "-1000px";
+		}
+	</script>
+</body>
+</html>

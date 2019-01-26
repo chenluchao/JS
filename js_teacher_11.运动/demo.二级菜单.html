@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>二级菜单</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.menu{
+			height: 30px;
+			background: #F90;
+		}
+		.menu ul{
+			width: 1200px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.menu ul li{
+			line-height: 30px;
+			float: left;
+			padding: 0 10px;
+			margin: 0 5px;
+			font-size: 14px;
+			color: #FFF;
+		}
+		.menu ul li.active{
+			background: #F60;
+		}
+		.submenu{
+			position: relative;
+			height: 0;
+			overflow: hidden;
+		}
+		.submenu p{
+			width: 100%;
+			height: 300px;
+			position: absolute;
+			line-height: 300px;
+			background: #03ccbb;
+			text-align: center;
+			font-size: 100px;
+			color: #FFF;
+			z-index: 0;
+		}
+		.submenu p.active{
+			z-index: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="menu">
+		<ul>
+			<li>首页</li>
+			<li>关于我们</li>
+			<li>新闻中心</li>
+			<li>联系我们</li>
+			<li>加入我们</li>
+		</ul>
+		<div class="submenu">
+			<p>首页</p>
+			<p>关于我们</p>
+			<p>新闻中心</p>
+			<p>联系我们</p>
+			<p>加入我们</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="move.js"></script>
+	<script type="text/javascript">
+		var menu = document.querySelector(".menu");
+		var ul = document.querySelector(".menu ul");
+		var lis = ul.children;
+		var submenu = document.querySelector(".submenu");
+
+		for(var i=0; i<lis.length; i++){
+			lis[i].index = i;
+			lis[i].onmouseenter=function(){
+				move(submenu,{
+					height:300
+				},100);
+
+				for(var i=0; i<submenu.children.length; i++){
+					submenu.children[i].className = "";
+					lis[i].className = "";
+				}
+
+				this.className = "active";
+				submenu.children[this.index].className = "active";
+
+				this.onmouseleave=function(){
+					move(submenu,{
+						height:0
+					},100);
+					this.onmouseleave=null;
+				}
+			}
+		}
+
+		submenu.onmouseenter=function(){
+			move(submenu,{
+				height:300
+			},100);
+		}
+		menu.onmouseleave=function(){
+			move(submenu,{
+				height:0
+			},100);
+			for(var i=0; i<submenu.children.length; i++){
+				submenu.children[i].className = "";
+				lis[i].className = "";
+			}
+		}
+	</script>
+</body>
+</html>

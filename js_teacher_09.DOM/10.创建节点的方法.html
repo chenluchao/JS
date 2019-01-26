@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>创建节点的方法</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			创建元素节点
+				createElement(标记名)
+
+			创建文本节点
+				createTextNode(文本);
+		*/
+
+		var ele = document.createElement("div");
+
+		ele.setAttribute("data-src","image/1.jpg");
+
+		ele.className = "active";
+
+
+		var text = document.createTextNode("我是一个文本节点");
+	</script>
+</body>
+</html>

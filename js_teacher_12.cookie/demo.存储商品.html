@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="btns">
+		
+	</div>
+	<script src="cookie.js"></script>
+<script>
+var pros = [{
+	pro_name:"小米手机",
+	price:"1999",
+	id:1,
+	img_url:"https://a.jpg"
+},{
+	pro_name:"小米电视",
+	price:"3999",
+	id:2
+},{
+	pro_name:"小米平板",
+	price:"2999",
+	id:3
+},{
+	pro_name:"小米电饭锅",
+	price:"999",
+	id:4
+}];
+
+//"2|3&3|8&4|11"
+var btns = document.querySelector(".btns");
+for(var i=0; i<pros.length; i++){//生成按钮及按钮的下标
+	var button = document.createElement("button");
+	btns.appendChild(button);
+	button.innerHTML = pros[i].pro_name;
+	button.index = pros[i].id;
+
+	button.onclick=function(){
+		var car = getCookie("car");
+		if(!car){//购物车为空时
+			//"n|1"
+			setCookie("car",this.index+"|1",7);
+		}else{
+			if(!findRepeat(this.index)){//购物车无重复数据
+				setCookie("car",car+"&"+this.index+"|1",7);
+			}else{//购物车内已有相同数据
+				var carpros = car.split("&");
+				for(var i=0; i<carpros.length; i++){
+					var pro = carpros[i].split("|");
+					if(this.index == pro[0]){
+						pro[1]++;
+						carpros.splice(i,1,pro.join("|"));
+					}
+				}
+				setCookie("car",carpros.join("&"),7);
+			}
+		}
+	}
+}
+
+function findRepeat(id){
+
+	var cookies = getCookie("car").split("&");
+
+	for(var i=0; i<cookies.length; i++){
+		var cook = cookies[i].split("|");
+		if(cook[0] == id){
+			return true;
+		}
+	}
+
+	return false;
+}
+</script>
+</body>
+</html>

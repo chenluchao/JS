@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//Math.random();//生成0~1之间的数字，包括0不包括1
+
+		//生成0-10，不包括10；
+
+		Math.random();//最小是0，最大是0.9999999999
+
+		Math.random()*10;//最小是0，最大是9.9999999999
+
+		console.log(Math.floor(Math.random()*10));
+
+		/*
+			生成0~n，不包括n
+			Math.floor(Math.random()*n);
+		*/
+
+		Math.floor(Math.random()*10)+20;
+
+		/*
+			生成n~m，不包括m
+			Math.floor(Math.random()*(m-n))+n
+		*/
+
+		//生成6~23，6 22
+		Math.floor(Math.random()*(23-6))+6;
+	</script>
+</body>
+</html>

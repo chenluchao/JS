@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+
+		}
+		#div1 ul{
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		#div1 ul li{
+			float: left;
+			width: 220px;
+			height: 220px;
+			list-style: none;
+		}
+		#div1{
+			width: 1100px;
+			height: 230px;
+			background-color: red;
+			margin: 100px auto;
+			position: relative;
+			/*overflow: hidden;*/
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oDiv=document.getElementById('div1');
+			var oUl=document.getElementsByTagName('ul')[0];
+			var aLi=oUl.getElementsByTagName('li');
+//			oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;
+			oUl.innerHTML+=oUl.innerHTML;
+			oUl.style.width=aLi[0].offsetWidth*aLi.length+'px';
+			var timer = setInterval(function (){
+				if(oUl.offsetLeft<-oUl.offsetWidth/2){
+					oUl.style.left='0';
+				}
+				if(oUl.offsetLeft>0){
+					oUl.style.left=-oUl.offsetWidth/2+'px';
+				}
+				oUl.style.left=oUl.offsetLeft-5+'px';
+			},30);
+//			oDiv.onmouseover=clearInterval(timer);
+		};
+	</script>
+	<body>
+		<div id="div1">
+			<ul>
+				<li><img src="../img/1.jpg"/></li>
+				<li><img src="../img/4.jpg"/></li>
+				<li><img src="../img/5.jpg"/></li>
+				<li><img src="../img/2.jpg"/></li>
+				<li><img src="../img/3.jpg"/></li>
+			</ul>
+		</div>
+	</body>
+</html>

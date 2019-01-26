@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		$(document).click(function(e){
+			console.log(e.target);//事件源
+			console.log(e.type);//事件类型
+			console.log(e.pageX);//鼠标到文档边缘的距离
+			e.stopPropagation();//阻止冒泡
+			e.preventDefault();//阻止默认行为
+		});
+	</script>
+</body>
+</html>

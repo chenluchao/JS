@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+			.split(正则);//字符串拆分为数组
+
+			.replace(正则,替换成的字符);//搜索并替换字符
+
+			.search(正则);//搜索字符
+
+			.match(正则);
+				//匹配字符，将匹配到的字符以数组的形式返回。
+		*/
+
+
+		var str = "2018--09--21";
+
+		console.log(str.split(/\D+/));
+
+		var str1 = "ab1cd37eAe456fg";
+
+		console.log(str1.replace(/[a-z]+/gi,""));
+			//g 全局匹配 i不区分大小写字母
+
+		var str2 = "哈利波特与混血王子";
+
+		console.log(str2.search(/\d/));
+
+		var str3 = "2018-09-21";
+
+		console.log(str3.match(/\d+/g));
+
+
+
+
+	</script>
+</body>
+</html>

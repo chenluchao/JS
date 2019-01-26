@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>弹球</title>
+	<style type="text/css">
+		.moveColor{
+			background: #03ccbb;
+			border-radius: 50%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="move.js"></script>
+	<script type="text/javascript">
+		document.onmousemove=function(){
+			document.onmousemove=function(e){
+				e = e || event;
+				var randomW = parseInt(Math.random()*21)+3;
+				var maxW = (document.documentElement.clientWidth || document.body.clientWidth)-randomW;
+				var maxH = (document.documentElement.clientHeight || document.body.clientHeight)-randomW;
+				var div = document.createElement("div");
+				div.className="moveColor";
+				document.body.appendChild(div);
+				div.style.width=randomW+"px";
+				div.style.height=randomW+"px";
+				div.style.left = e.clientX+"px";
+				div.style.top = e.clientY+"px";
+				div.style.background = "rgb("+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+")";
+				(function go(){
+					move(div,{
+						left:parseInt(Math.random()*200+e.clientX-100),
+						top:parseInt(Math.random()*200+e.clientY-100),
+						width:0,
+						height:0
+					},1000,function(){
+						document.body.removeChild(div);
+					});
+				})();//函数自执行
+			}
+		}
+	</script>
+</body>
+</html>

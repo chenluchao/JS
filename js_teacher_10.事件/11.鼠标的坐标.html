@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>鼠标的坐标</title>
+	<style type="text/css">
+		.box{
+			margin:100px auto;
+			margin-left: 3000px;
+			width: 100px;
+			height: 100px;
+			background: #F90;
+		}
+	</style>
+</head>
+<body>
+	<div id="box" class="box"></div>
+	<script type="text/javascript">
+		/*
+			clientX/clientY 浏览器
+			offsetX/offsetY 事件源
+			screenX/screenY 电脑屏幕
+			pageX/pageY 文档 不支持IE低版本  使用 e.offsetX+ele.offsetLeft
+			layerX/layerY 文档 不支持IE低版本
+		*/
+
+		var ele = document.getElementById("box");
+
+		ele.onclick=function(e){
+			e = e || event;
+
+			console.log(e.clientX,"clientX");
+			console.log(e.offsetX,"offsetX");
+			console.log(e.pageX,"pageX");
+			console.log(e.screenX,"screenX");
+			console.log(e.layerX,"layerX");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+			函数的作用域是在函数定义时决定的。
+
+			变量的访问会沿着作用域链进行查找。
+		*/
+
+		function foo(){
+			alert(b);
+		}
+
+		function fn(a){
+			var b = 10;
+			a();
+		}
+
+		fn(foo);
+
+	</script>
+</body>
+</html>

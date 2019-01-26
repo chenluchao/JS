@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="movies"></div>
+		<script src="js/jQuery.js"></script>
+		<script type="text/javascript">
+			$.ajax({
+				url:"http://maoyan.alipapa.vip/movie",
+				type:"get",
+				async:true,
+				cache:false,
+				header:{
+					'Content-type':'applicaation/json'
+				},
+				data:{
+					page:2
+				},
+				context:$('.movies'),
+				dataType:"json",
+				success:function(data){
+					console.log(data)
+				},
+				error:function(xhr){
+					console.log(xhr.status)
+				}
+			})
+		</script>
+	</body>
+</html>

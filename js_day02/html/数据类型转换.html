@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+				转number//转化为数字
+					Number();
+						NaN：特殊的数字不是一个数字；
+					paseInt()//转化为整数，只能将字符串转为数字
+					parseFloat()//转化为小数
+				转string：原样输出
+					String（）
+					.toString()
+						原样输出，null和undefined不支持此方法
+				转boolean：
+					Boolean()
+						number除了0,NaN全部是true;
+						string除了空字符都是true；
+						null和undefined都是false;
+			* */
+			console.log(Number(""));//空字符转为0
+			console.log(Number("123"));//原样转为数字
+			console.log(Number("123a"));//转为NaN
+			console.log(parseInt("12a53"));//12
+			console.log(parseFloat("12.35a5"));
+			console.log(Number(true));//true为1，false为0;
+			console.log(Number(null));//null转为0
+			console.log(Number(undefined));//undefined转为NaN
+			console.log(String(12300));
+			var a = 12300;
+			console.log(a.toString());
+			console.log(Boolean(1));
+		</script>
+	</body>
+</html>

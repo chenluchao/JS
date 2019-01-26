@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>01</li>
+		<li>02</li>
+		<li>03</li>
+		<li>04</li>
+		<li>05</li>
+	</ul>
+
+	<p>123</p>
+
+	<button>按钮</button>
+	<input type="button" value="按钮1" />
+	<script src="js/jquery.min.js"></script>
+	<script>
+		/*
+			detach和remove都可以将元素从DOM层移除，但是remove会清空元素所绑定的事件处理
+		*/
+
+		$("button").click(function(){
+			alert(123);
+		}).detach().appendTo('body');
+
+		$('input').click(function(){
+			alert(345);
+		}).remove().appendTo('body');
+
+		$("ul").empty();
+
+		$('p').wrap('<div class="box"></div>').unwrap();
+	</script>
+</body>
+</html>

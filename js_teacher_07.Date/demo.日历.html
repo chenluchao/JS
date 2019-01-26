@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.rili{
+			width: 385px;
+			margin: 20px auto;
+			border: solid 2px #57abff;
+		}
+		.rili .weeks{
+			overflow: hidden;
+			background: #57abff;
+			color:#FFF;
+		}
+		.rili .weeks p{
+			line-height: 33px;
+			height: 33px;
+			width: 55px;
+			float: left;
+			text-align: center;
+		}
+		.rili .dates{
+			overflow: hidden;
+		}
+		.rili .dates p{
+			width: 55px;
+			float: left;
+			text-align: center;
+			height: 45px;
+			line-height: 45px;
+			border-top: solid 1px #c8cacc;
+		}
+		.rili .dates p.active{
+			background: #ffbb00;
+			color: #FFF;
+		}
+	</style>
+</head>
+<body>
+	<div class="rili">
+		<div class="weeks">
+			<p>日</p>
+			<p>一</p>
+			<p>二</p>
+			<p>三</p>
+			<p>四</p>
+			<p>五</p>
+			<p>六</p>
+		</div>
+		<div id="dates" class="dates">
+		</div>
+	</div>
+	<script>
+		var date = new Date();//9月21日
+
+		var days = calcDays(date.getFullYear(),date.getMonth());//获取当前月份天数
+
+		var day = date.getDate();//获取今天几号
+
+		//求1号是周几？
+		date.setDate(1);
+		var week = date.getDay();//6
+
+		var n = 1;
+		for(var i=0; i<42; i++){//生成6行p标记
+			if(i<week){//上个月的日期不填
+				dates.innerHTML += "<p>&nbsp;</p>";
+			}else{//当前月开始
+				if(n<=days){//属于当前月
+					if(n==day){//今天
+						dates.innerHTML += "<p class='active'>"+n+"</p>";
+					}else{//不是今天
+						dates.innerHTML += "<p>"+n+"</p>";
+					}
+					n++;
+				}
+				else{//大于当前月
+					dates.innerHTML += "<p>&nbsp;</p>";
+				}
+			}
+		}
+
+		function calcDays(year,month){//3
+			var date = new Date(year,month,1);
+
+			var date1 = new Date(year,month+1,1);
+
+			return (date1-date)/1000/60/60/24;
+		}
+	</script>
+</body>
+</html>

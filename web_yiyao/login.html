@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<link rel="shortcut icon" href="images/title_logo.ico" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/login.css" />
+	</head>
+
+	<body>
+		<div class="log_head">
+			<div class="log_head_con">
+				<a href="index.html"><img src="https://s.maiyaole.com/images/passport/yao_logo.png" /></a>
+			</div>
+		</div>
+		<div class="log_main">
+			<div class="log_main_con">
+				<div class="log_form">
+					<div class="tab">
+						<div class="tab_btn">
+							<div class="active">
+								<p class="active">普通登录</p>
+							</div>
+							<div>
+								<p>手机快速登录</p>
+							</div>
+						</div>
+						<div class="tab_show">
+							<div class="active" id="pt">
+								<h2>
+									Hi，欢迎登录！
+									<span>还不是1药网会员？<a href="register.html">免费注册</a></span>
+								</h2>
+								<form class="login" action="" method="post">
+									<div class="ysy">
+										<i></i>
+										<input type="text" name="uname" placeholder="邮箱/手机号/用户名" required="required" />
+									</div>
+									<div class="ysy">
+										<i class="pass"></i>
+										<input type="password" name="password" placeholder="登录密码" required="required" />
+									</div>
+									<div class="checkb">
+										<label>
+											<input type="checkbox" name="mianlog" id="" />
+											<span>两周内免登录</span>
+										</label>
+									</div>
+									<input type="submit" value="登录" />
+								</form>
+								<div class="friend">
+									<p>使用合作伙伴账号登录：</p>
+									<p>
+										<a href="javascript:;" class="yhd"></a>
+										<a href="javascript:;" class="zfb"></a>
+										<a href="javascript:;" class="qq"></a>
+										<a href="javascript:;" class="wb"></a>
+										<a href="javascript:;" class="wlt"></a>
+										<a href="javascript:;" class="wy"></a>
+									</p>
+								</div>
+							</div>
+							<div id="ks">
+								<h2>
+									Hi，欢迎登录！
+									<span>还不是1药网会员？<a href="register.html">免费注册</a></span>
+								</h2>
+								<form action="" method="post">
+									<div id="tis">
+										<div class="ysy">
+											<i></i>
+											<input id="sjh" type="tel" pattern="[0-9]{11}" name="uname" placeholder="请输入您的手机号" required="required" />
+										</div>
+										<span>手机号格式不正确</span>
+									</div>
+									<div id="yzmb" class="ysy">
+										<i id="dx" class="pass"></i>
+										<input id="yzm" type="password" name="password" placeholder="请输入短信验证码" required="required" />
+									</div>
+									<button>获取短信验证码</button>
+									<input type="submit" value="登录" />
+								</form>
+								<div class="friend">
+									<p>使用合作伙伴账号登录：</p>
+									<p>
+										<a href="javascript:;" class="yhd"></a>
+										<a href="javascript:;" class="zfb"></a>
+										<a href="javascript:;" class="qq"></a>
+										<a href="javascript:;" class="wb"></a>
+										<a href="javascript:;" class="wlt"></a>
+										<a href="javascript:;" class="wy"></a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="log_foot">
+			<div class="log_foot_con">
+				<p>
+					<a href="javascript:;">关于1药网</a>|
+					<a href="javascript:;">互联网药品交易资格证</a>|
+					<a href="javascript:;">互联网药品信息服务资格证</a>
+				</p>
+				<p>
+					<a href="javascript:;">连锁营业执照</a>|
+					<a href="javascript:;">保健食品卫生许可证</a>|
+					<a href="javascript:;">医疗器械许可证</a>|
+					<a href="javascript:;">食品流通许可证</a>|
+					<a href="javascript:;">GSP证书</a>|
+					<a href="javascript:;">粤ICP备12015869号</a>
+				</p>
+				<p>
+					Copyright© 1药网 2010-2015， All Rights Reserved
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/libs/require.min.js" data-main="js/login.js"></script>
+	</body>
+
+</html>

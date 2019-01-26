@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input id="ipt1" type="text">
+	<input id="ipt2" type="text">
+	<button onclick="calc('+')">+</button>
+	<button onclick="calc('-')">-</button>
+	<button onclick="calc('*')">*</button>
+	<button onclick="calc('/')">/</button>
+	<button onclick="calc('%')">%</button>
+
+	<script>
+		function calc(fuhao){//var fuhao = '+'
+			switch(fuhao){
+				case "+":
+					alert(parseInt(ipt1.value)+parseInt(ipt2.value));
+					break;
+				case "-":
+					alert(ipt1.value-ipt2.value);
+					break;
+				case "*":
+					alert(ipt1.value*ipt2.value);
+					break;
+				case "/":
+					alert(ipt1.value/ipt2.value);
+					break;
+				case "%":
+					alert(ipt1.value%ipt2.value);
+					break;
+				default:
+					alert("输入错误");
+			}
+		}
+
+
+		/*function jia(){
+			alert(parseInt(ipt1.value)+parseInt(ipt2.value))
+		}
+		function jian(){
+			alert(ipt1.value-ipt2.value)
+		}
+		function cheng(){
+			alert(ipt1.value*ipt2.value)
+		}
+		function chu(){
+			alert(ipt1.value/ipt2.value)
+		}
+		function yu(){
+			alert(ipt1.value%ipt2.value)
+		}*/
+	</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>售货机</title>
+	</head>
+	<body>
+		<input type="text" name="money" id="money" placeholder="请投币" />
+		<select id="drink">
+			<option value="雪碧">雪碧</option>
+			<option value="加多宝">加多宝</option>
+			<option value="王老吉">王老吉</option>
+			<option value="可乐">可乐</option>
+			<option value="脉动">脉动</option>
+		</select>
+		<button onclick="buy()">出货</button>
+		
+		<script type="text/javascript">
+			function yanc(m){//验钞
+				if(m==1||m==5||m==10||m==20){
+					return true;
+				}
+				return false;
+			}
+			
+			function howm(d){//商品价格
+				switch(d){
+					case "雪碧":
+						return 3;
+					case "加多宝":
+						return 4;
+					case "王老吉":
+						return 5;
+					case "可乐":
+						return 6;
+					case "脉动":
+						return 7;
+				}
+			}
+			
+			function zhaol(p,m){//找零
+				return p-m;
+			}
+			
+			function buy(){
+				if(yanc(money.value)){
+					var drinkMuch = howm(drink.value);
+					if(money.value>=drinkMuch){
+						alert("这是您的"+drink.value);
+						alert("找您"+zhaol(money.value,drinkMuch)+"元");
+					}
+					else{
+						alert("请继续投币");
+						return;
+					}
+				}
+				else{
+					alert("请投真币");
+				}
+				money.value ="";
+			}
+		</script>
+	</body>
+</html>

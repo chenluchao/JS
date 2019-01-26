@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>时钟</title>
+		<link rel="shortcut icon" href="img/title.ico" />
+		<style type="text/css">
+			#big{
+				width: 300px;
+				height: 100px;
+				border: 2px solid red;
+				box-shadow: 0px 0px 30px red inset;
+				margin: 0 auto;
+				margin-top: 160px;
+				text-align: center;
+				padding-top: 20px;
+				overflow: hidden;
+			}
+		</style>
+		<script type="text/javascript">
+			function tod(n){
+				if(n<10){
+					return "0"+n;
+				}
+				else{
+					return ""+n;
+				}
+			}
+			window.onload=function(){
+				var aImg=document.getElementsByTagName('img');
+				function tick(){
+					var oDate=new Date();
+					var str=tod(oDate.getHours())+tod(oDate.getMinutes())+tod(oDate.getSeconds());
+					for(var i=0;i<aImg.length;i++){
+						aImg[i].src='img/'+str.charAt(i)+'.png';
+						//charAt()解决兼容问题:charAt()在任何浏览器都可以，str[i]IE5不兼容。
+					}
+				}
+				tick();
+				setInterval(tick,1000);
+			};
+		</script>	
+	</head>
+	<body style="background-color: black;font-size: 50px;color: white;">
+		<div id="big">
+			<img src="../img/0.png"/>
+			<img src="../img/0.png"/>
+			:
+			<img src="../img/0.png"/>
+			<img src="../img/0.png"/>
+			:
+			<img src="../img/0.png"/>
+			<img src="../img/0.png"/>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+			http://baidu.com
+			https://baidu.com
+			https://www3.baidu.com
+			https://abc.www.baidu.com
+		*/
+
+		var reg = /^(http[s]?:\/\/)?([\dA-Za-z-]+\.)+[A-Za-z]{2,4}$/;
+
+
+		console.log(reg.test("baidu.com"));
+	</script>
+</body>
+</html>

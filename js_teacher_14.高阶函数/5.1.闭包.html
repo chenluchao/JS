@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+			函数的作用域是在函数定义时决定的。
+
+			函数的执行依赖于自身变量及自身所在作用于链中的位置。
+
+			函数保留自身变量和自身所在作用域链中位置的现象，在计算机科学中称为闭包。
+		*/
+
+		var a = 20;
+		var b = 22;
+
+		function foo(){
+			var b = 30;
+		}
+
+		function fn(){
+			var a = 10;
+
+			alert(a);//10
+			alert(b);//22
+		}
+		alert(typeof(foo))
+		alert(a);
+
+		foo();
+
+		fn();
+
+
+	</script>
+</body>
+</html>

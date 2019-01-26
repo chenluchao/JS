@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+		function run(fn){
+			var num = 0;
+			setTimeout(function(){
+				var a = 20;
+				num++;
+				fn(num);
+			},1000);
+
+		}
+
+		var a = 10;
+		run(function(index){
+			alert(a);//20
+			alert(index);
+		});
+
+	</script>
+</body>
+</html>

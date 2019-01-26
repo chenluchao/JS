@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="ipt" id="ipt" oninput="fn()" />
+		<script type="text/javascript">
+			function fn(){
+				var str=ipt.value.match(/\d+/g);
+				if(str){
+					ipt.value=str.join("");
+				}else{
+					ipt.value='';
+				}
+			}
+		</script>
+	</body>
+</html>

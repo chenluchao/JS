@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>事件的默认行为</title>
+</head>
+<body style="height: 10000px;">asdfasdf
+	<img id="img" src="images/userpic.jpg">
+	<script type="text/javascript">
+		/*
+			右键菜单
+			文字选中
+			拖动图片
+			滚轮控制滚动条
+		*/
+
+		document.oncontextmenu=function(e){
+			e = e || event;
+
+			e.preventDefault?e.preventDefault():e.returnValue=false;
+		}
+
+		document.onmousedown=document.onmousemove=function(e){
+			e = e || event;
+
+			e.preventDefault?e.preventDefault():e.returnValue=false;
+		}
+		img.onmousedown=document.onmousemove=function(e){
+			e = e || event;
+
+			e.preventDefault?e.preventDefault():e.returnValue=false;
+		}
+
+		document.onwheel=document.onmousewheel=function(e){
+			e = e || event;
+
+			e.preventDefault?e.preventDefault():e.returnValue=false;
+
+		}
+	</script>
+</body>
+</html>

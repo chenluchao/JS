@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>按钮</button>
+		<input type="text" name="" id="" value="" />
+		<script type="text/javascript" src="js/jQuery.js"></script>
+		<!--<script type="text/javascript">
+			$(function(){
+				alert(456)
+			})
+		</script>
+		<script type="text/javascript">
+			alert(123);
+		</script>-->
+		<!--<script type="text/javascript">
+			$('input').prop('disabled',"true")
+			$('input').attr('disabled',"true")
+			console.log($('input').prop('disabled'))
+			console.log($('input').attr('disabled'))
+		</script>-->
+		<!--<script type="text/javascript">
+			$('button').on("click",function(){
+				alert(event.target.nodeName);
+				alert(event.type);
+				alert(event.which);
+				alert(event.result)
+			})
+			$(document).click(function(){
+				alert(event.pageX)
+			})
+		</script>-->
+		<!--<script type="text/javascript">
+			$('*').click(function(){
+				alert(123)
+				event.stopPropagation()
+			})
+		</script>-->
+		<script type="text/javascript">
+			$(document).bind('click',function(){
+				alert(123)
+			});
+			$(document).bind('contextmenu',function(){
+				alert(456)
+				event.preventDefault()
+			});
+		</script>
+		<!--<script type="text/javascript">
+			$('button').hover(function(){
+				console.log(123)
+			},function(){
+				console.log(456)
+			})
+		</script>-->
+	</body>
+</html>

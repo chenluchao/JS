@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.big{
+				width: 825px;
+				height: 390px;
+				margin: 0 auto;
+			}
+			.menu{
+				height: 70px;
+				width: 100%;
+				line-height: 70px;
+				text-align: center;
+				border-bottom: 1px solid #c8c3c3;
+			}
+			.menu span{
+				display: inline-block;
+				font-size: 15px;
+				width: 70px;
+				height: 70px;
+				line-height: 70px;
+				text-align: center;
+				margin-left: 20px;
+			}
+			.menu .active{
+				border-bottom: 2px solid black;
+			}
+			.big .box div{
+				width: 825px;
+				height: 500px;
+				background-color: #C8C3C3;
+				display: none;
+			}
+			.big .box .active{
+				display: block;
+			}
+			.box dl{
+				float: left;
+				margin: 20px 30px;
+				padding: 0 50px;
+				border-right: 1px dotted red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="big">
+			<div class="menu">
+				<span>男子</span>
+				<span>女子</span>
+				<span>男孩</span>
+				<span>女孩</span>
+				<span>专属</span>
+				<span>潮流</span>
+			</div>
+			<div class="box">
+				<div>
+					<dl>
+						<dt>所有商品</dt>
+						<dd>最新上市</dd>
+					</dl>
+					<dl>
+						<dt>鞋类</dt>
+						<dd>男鞋</dd>
+					</dl>
+					<dl>
+						<dt>服装</dt>
+						<dd>男装</dd>
+					</dl>
+					<dl>
+						<dt>装备</dt>
+						<dd>潮牌</dd>
+					</dl>
+				</div>
+				<div>
+					22
+				</div>
+				<div >
+					33
+				</div>
+				<div>
+					44
+				</div>
+				<div>
+					55
+				</div>
+				<div>
+					66
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var spans=document.querySelectorAll(".big .menu span");
+			var divs=document.querySelectorAll(".big .box div")
+			var big=document.querySelector(".big");
+			for(var i=0;i<spans.length;i++){
+				spans[i].index=i;
+				spans[i].onmouseover=function(e){
+					e=e||window.event;
+					e.stopPropagation()?e.stopPropagation():e.cancelBubble=true;
+					for(var j=0;j<spans.length;j++){
+						spans[j].className="";
+						divs[j].className="";
+					}
+					this.className = "active";
+					divs[this.index].className = "active";
+				}
+				divs[i].onmouseover=function(e){
+					e=e||window.event;
+					e.stopPropagation()?e.stopPropagation():e.cancelBubble=true;
+//					this.className = "active";
+				}
+				document.onmouseover=function(e){
+					for(var j=0;j<spans.length;j++){
+						spans[j].className="";
+						divs[j].className="";
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

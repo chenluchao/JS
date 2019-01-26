@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+			.call()
+				第一个参数用于替换被借用函数体中的this
+				第二个及之后的参数用于依次替换函数的参数
+
+			.apply()
+				第一个参数用于替换被借用函数体中的this
+				第二个参数用于替换arguments参数列表
+		*/
+
+		function fn(a,b,c,d){
+			console.log(this,a,b,c,d,arguments);
+		}
+
+		fn();
+
+		fn.call({a:10},3,1,2,5);
+
+		fn.apply({b:20},["a","b","c","d"]);
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		/*
+			$.ajax的返回值为deferred对象
+		*/
+		$.ajax("http://maoyan.alipapa.vip/movie1").done(function(data){
+			console.log(data);
+		}).fail(function(xhr){
+			console.log(xhr.status);
+		}).always(function(){
+			console.log("完成");
+		});
+	</script>
+</body>
+</html>

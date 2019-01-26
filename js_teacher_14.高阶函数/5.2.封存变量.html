@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>01</li>
+		<li>02</li>
+		<li>03</li>
+		<li>04</li>
+		<li>05</li>
+		<li>06</li>
+		<li>07</li>
+		<li>08</li>
+		<li>09</li>
+		<li>10</li>
+	</ul>
+
+	<script>
+		var lis = document.querySelectorAll("ul li");
+		for(var i=0; i<lis.length; i++){
+			(function(i){//封存变量
+				lis[i].onclick=function(){//异步
+					alert(i);
+				}
+			})(i);
+		}
+
+	</script>
+	<script type="text/javascript">
+//		var lis=document.querySelectorAll("ul li");
+//		(function(i){
+//			lis[i].onclick=function(){
+//				alert(i);
+//			}
+//		})(i);
+	</script>
+</body>
+</html>

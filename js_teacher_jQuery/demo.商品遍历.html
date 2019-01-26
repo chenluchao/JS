@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="car">
+		<ul>
+			
+		</ul>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script>
+		/*
+			<li>商品名称，商品价格，商品数量，商品总价，<button>删除</button></li>
+		*/
+
+		var pros = [{
+			name:"小米手机",
+			price:"1999",
+			num:5
+		},{
+			name:"oppo",
+			price:"2999",
+			num:8
+		},{
+			name:"华为",
+			price:"999",
+			num:1
+		}];
+
+		$.each(pros,function(index,ele){
+			var li = $('<li>商品名称:'+ele.name+'，商品价格:'+ele.price+'，商品数量:'+ele.num+'，商品总价:'+ele.num*ele.price+'</li>').appendTo('.car ul');
+
+			$('<button>删除</button>').click(function(){
+				$(this).parent().remove();
+			}).appendTo(li);
+		});
+	</script>
+</body>
+</html>

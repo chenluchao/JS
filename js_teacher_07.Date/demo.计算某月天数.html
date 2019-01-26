@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//2016年2月有多少天？
+
+		function calcDays(year,month){//2-3
+			var date = new Date(year,month-1);//1--2
+
+			var date1 = new Date(year,month);//2-3
+
+			return (date1-date)/1000/60/60/24;
+		}
+
+		console.log(calcDays(2016,2));
+		
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			.cat{
+				width: 640px;
+				height: 600px;
+				margin: 0 auto;
+			}
+			.cat ul li{
+				line-height: 60px;
+				height: 60px;
+			}
+			.cat ul{
+				position: relative;
+				width: 40px;
+				background: #FF9900;
+			}
+			.cat ul li a{
+				text-decoration: none;
+				text-align: center;
+				display: inline-block;
+				width: 40px;
+				border: 1px solid black;
+			}
+			.cat ul li .sub_cat{
+				position: absolute;
+				left: 40px;
+				top: 0;
+				width: 600px;
+				height: 600px;
+				display: none;
+				border: 1px solid #FF0000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cat">
+			<ul>
+				<li>
+					<a href="">01</a>
+					<div class="sub_cat">
+						<img src="images/1.jpg"/>
+					</div>
+				</li>
+				<li>
+					<a href="">02</a>
+					<div class="sub_cat">
+						<img src="images/2.jpg"/>
+					</div>
+				</li>
+				<li>
+					<a href="">03</a>
+					<div class="sub_cat"><img src="images/3.jpg"/></div>
+				</li>
+				<li>
+					<a href="">04</a>
+					<div class="sub_cat"><img src="images/4.jpg"/></div>
+				</li>
+				<li>
+					<a href="">05</a>
+					<div class="sub_cat"><img src="images/5.jpg"/></div>
+				</li>
+				<li>
+					<a href="">06</a>
+					<div class="sub_cat"><img src="images/6.jpg"/></div>
+				</li>
+				<li>
+					<a href="">07</a>
+					<div class="sub_cat"><img src="images/7.jpg"/></div>
+				</li>
+				<li>
+					<a href="">08</a>
+					<div class="sub_cat"><img src="images/2.jpg"/></div>
+				</li>
+				<li>
+					<a href="">09</a>
+					<div class="sub_cat"><img src="images/4.jpg"/></div>
+				</li>
+				<li>
+					<a href="">10</a>
+					<div class="sub_cat"><img src="images/3.jpg"/></div>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="js/jQuery.js"></script>
+		<script type="text/javascript">
+			$('.cat ul li').hover(function(){
+				$(this).find(".sub_cat").css({
+					display:"block"
+				})
+			},function(){
+				$(this).find(".sub_cat").css({
+					display:"none"
+				})
+			})
+		</script>
+	</body>
+</html>

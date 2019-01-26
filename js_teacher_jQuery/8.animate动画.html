@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			background: #03ccbb;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body style="height: 100000px">
+	<div class="box"></div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easing.js"></script>
+	<script>
+	$(document).contextmenu(function(){
+		$(".box").stop();
+	});
+	$(document).click(function(){
+		$('.box').animate({
+			left:1000,
+			top:300
+		},{
+			duration:1000,
+			queue:false,
+			specialEasing:{
+				left:"easeInOutBounce",
+				top:"easeInOutBack"
+			},
+			complete:function(){
+				alert("完成")
+			},
+			fail:function(){
+				alert("失败");
+			},
+			always:function(){
+				alert("结束");
+			}
+		});
+	})/*.contextmenu(function(){
+		$('.box').animate({
+			left:0
+		},{
+			duration:1000,
+			easing:'swing',
+			queue:false
+		});
+	})*/;
+
+		
+		// $(".box").animate({
+		// 	left:300,
+		// 	top:300
+		// },2000,"linear",function(){
+		// 	$(this).animate({
+		// 		left:0
+		// 	},2000);
+		// });
+
+		// $('body,html').animate({
+		// 	scrollTop:10000
+		// },5000);
+
+	</script>
+</body>
+</html>

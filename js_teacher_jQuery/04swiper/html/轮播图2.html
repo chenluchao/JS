@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/swiper.css"/>
+		<script type="text/javascript" src="../js/swiper.js"></script>
+		<style>
+    html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 400px;
+      height: 600px;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+    /*.swiper-wrapper .swiper-slide img{
+    	width: 100%;
+    	height: 400px;
+    	height: 100%;
+    }*/
+    .swiper-pagination-custom {
+				bottom: 350px;
+				left: 0;
+				width: 100%;
+			}
+			/*自定义分页器的样式，这个你自己想要什么样子自己写*/
+			.swiper-pagination-customs {
+				width: 30px;
+				height: 4px;
+				display: inline-block;
+				background: #000;
+				opacity: .3;
+				margin: 0 5px;
+			}
+			/*自定义分页器激活时的样式表现*/
+			.swiper-pagination-customs-active {
+				opacity: 1;
+				background-color: #F78E00;
+			}   
+  </style>
+	</head>
+	<body>
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+			      <div class="swiper-slide"><img src="../images/1.jpg"/></div>
+			      <div class="swiper-slide"><img src="../images/2.jpg"/></div>
+			      <div class="swiper-slide"><img src="../images/3.jpg"/></div>
+			      <div class="swiper-slide"><img src="../images/4.jpg"/></div>
+			      <div class="swiper-slide"><img src="../images/5.jpg"/></div>
+			      <div class="swiper-slide"><img src="../images/6.jpg"/></div>
+			      <div class="swiper-slide"><img src="../images/7.jpg"/></div>
+		    </div>
+		    <!-- Add Pagination -->
+		    <div class="swiper-pagination"></div>
+	  </div>
+  <script type="text/javascript">
+  	var swiper = new Swiper('.swiper-container', {
+  	 	loop:true,
+  	 	uniqueNavElements:false,
+  	 	autoHeight:true,
+  	 	a11y : {
+	      prevSlideMessage: 'Previous slide',
+	      nextSlideMessage: 'Next slide',
+	      firstSlideMessage: 'This is the first slide',
+	      lastSlideMessage: 'This is the last slide',
+	      paginationBulletMessage: 'Go to slide {{index}}',
+	      notificationClass: 'swiper-notification',
+	    },
+	    centeredSlides : true,
+      	pagination: {
+       		el: '.swiper-pagination',
+       		clickable:true,
+       		
+       		//type:"custom",
+       		/*renderCustom: function(swipers, current, total) {
+				var customPaginationHtml = "";
+				for(var i = 0; i < total; i++) {
+					if(i == (current - 1)) {
+						customPaginationHtml += '<span class="swiper-pagination-customs swiper-pagination-customs-active"></span>';
+					} else {
+						customPaginationHtml += '<span class="swiper-pagination-customs"></span>';
+					}
+				}
+				return customPaginationHtml;
+			}*/
+     	 },
+    });
+  </script>
+	</body>
+</html>

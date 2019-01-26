@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		h1{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	
+	<h1 id="time"></h1>
+	
+	<script>
+		function parseDate(date){
+			return date.getFullYear()+"年"+add0(date.getMonth()+1)+"月"+add0(date.getDate())+"日 "+add0(date.getHours())+"时"+add0(date.getMinutes())+"分"+add0(date.getSeconds())+"秒 "+parseWeek(date.getDay())
+		}
+
+		setInterval(function(){
+			time.innerHTML = parseDate(new Date());
+		},1000);
+
+
+
+		function add0(num){
+			if(num<10){
+				return "0"+num;
+			}
+
+			return num;
+		}
+
+		function parseWeek(num){
+			switch(num){
+				case 0:
+					return "星期日";
+				case 1:
+					return "星期一";
+				case 2:
+					return "星期二";
+				case 3:
+					return "星期三";
+				case 4:
+					return "星期四";
+				case 5:
+					return "星期五";
+				case 6:
+					return "星期六";
+				default:
+					return "";
+			}
+		}
+	</script>
+
+</body>
+</html>

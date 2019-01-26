@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//前17位数字，最后一位可以是xX
+		var str = "1353301999082101";
+
+		var reg = /(^\d{17}[\dxX]{1}$)|(^\d{15}$)/;
+
+		console.log(reg.test(str));
+	</script>
+</body>
+</html>

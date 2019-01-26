@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// || && !
+
+		/*
+			|| 或
+				先将运算符前边转为布尔值
+				如果布尔值为true，则取前边的值
+				如果布尔值为false，则取后边的值
+
+			console.log(true || false);
+			console.log(false || true);
+			console.log(0 || 1);
+			console.log(10 || 20);
+			console.log(null || undefined);
+			console.log(undefined || null);
+			console.log(NaN || 9);
+		*/
+
+		/*
+			&& 与
+				先将运算符前边转为布尔值
+				如果布尔值为true，则取后边的值
+				如果布尔值为false，则取前边的值
+
+			console.log(1 && 2);//2
+			console.log(" " && NaN);//NaN
+			console.log(null && undefined);//null
+			console.log(1>2 && 2>1);//false
+			console.log(1-1 && 2-2);//0
+		*/
+
+		/*
+			! 非
+				将运算符后边的值转为布尔值，然后取布尔值的相反值
+		*/
+
+		console.log(!0);//true
+		console.log(!"");//true
+		console.log(!1);//false
+
+
+
+
+
+
+	</script>
+</body>
+</html>

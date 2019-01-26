@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>九九乘法表</title>
+		<style type="text/css">
+			div{
+				float: left;
+				width: 88px;
+				height: 35px;
+				/*background-color: cyan;*/
+				line-height: 35px;
+				text-align: center;
+				border: 2px solid blueviolet;
+				/*color: blue;*/
+				margin: 1px;
+				font-size: 18px;
+			}
+			span{
+				clear: both;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var s=document.getElementById("small");
+			for(var i=1;i<=9;i++){
+				for(var j=1;j<=i;j++){
+					document.write("<div id='small' style='background-color: rgb("+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+");'>"+j+"*"+i+"="+i*j+"</div>");
+				}
+				document.write("<span></span>");
+			}
+		</script>
+	</body>
+</html>

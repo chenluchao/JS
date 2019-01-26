@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>运动的条件</title>
+	<style type="text/css">
+		.box{
+			position:absolute;
+			width: 100px;
+			height: 100px;
+			background: #F90;
+			left: 333px;
+			top:0;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script type="text/javascript">
+		/*
+			起点
+			终点 -1000
+			运动时长
+			运动属性
+		*/
+		
+		var ele = document.querySelector(".box");
+
+		var start = ele.offsetLeft
+		var total = 888 - start;//总距离2000
+		var duration = 300;
+		var starttime = new Date();//记录起始时间
+
+		var timer = setInterval(function(){
+			//计算耗时比
+			var scale = (new Date()-starttime)/duration;
+
+			if(scale>=1){
+				scale = 1;
+				clearInterval(timer);
+			}
+			ele.style.left = start+total*scale+"px";
+		},10);
+
+
+	</script>
+</body>
+</html>

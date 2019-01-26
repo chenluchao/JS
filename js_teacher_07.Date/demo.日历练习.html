@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#rili{
+				width: 385px;
+				margin: 20px auto;
+				border: solid 2px #57abff;
+			}
+			#rili .weeks{
+				overflow: hidden;
+				background: #57abff;
+				color:#FFF;
+			}
+			#rili .weeks p{
+			line-height: 33px;
+			height: 33px;
+			width: 55px;
+			float: left;
+			text-align: center;
+		}
+		#rili .dates{
+			overflow: hidden;
+		}
+		#rili .dates p{
+			width: 55px;
+			float: left;
+			text-align: center;
+			height: 45px;
+			line-height: 45px;
+			border-top: solid 1px #c8cacc;
+		}
+		#rili .dates p .active{
+			background: #ffbb00;
+			color: #FFF;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="rili">
+			<div class="weeks">
+				<p>日</p>
+				<p>一</p>
+				<p>二 </p>
+				<p>三</p>
+				<p>四</p>
+				<p>五</p>
+				<p>六</p>
+			</div>
+			<div class="dates" id="dates">
+			</div>
+		</div>
+		<script type="text/javascript">
+			var date = new Date();
+			var days = calcDays(date.getFullYear(),date.getMonth());
+			var day=date.getDate();
+			date.setDate(1);
+			var week = date.getDay();
+			
+			var n=1;
+			for(var i=0;i<42;i++){
+				if(i<week){
+					dates.innerHTML+="<p>&nbsp;</p>";
+				}
+				else{
+					if(n<=days){
+						if(n==day){
+							dates.innerHTML+="<p class='active'>"+n+"</p>";
+						}else{
+							dates.innerHTML+="<p>"+n+"</p>";
+						}
+						n++;
+					}
+					
+					else{
+						dates.innerHTML+="<p>&nbsp;</p>";
+					}
+				}
+			}
+			
+			
+			function calcDays(year,month){//8-9注意此处年月为函数调用时get函数获取的。
+				var date = new Date(year,month,1);//8-9
+				var date1 = new Date(year,month+1,1);//9-10
+				return (date1-date)/1000/60/60/24;//10.1-9.1=9
+			}
+		</script>
+	</body>
+</html>

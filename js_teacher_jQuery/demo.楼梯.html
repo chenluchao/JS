@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>楼层效果</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			text-align: center;
+		}
+		.floor{
+			width: 1200px;
+			margin: 0 auto;
+			padding-top: 800px;
+			margin-bottom: 300px;
+		}
+		.floor p{
+			height: 600px;
+			text-align: center;
+			line-height: 600px;
+			font-size: 100px;
+			background: #03ccbb;
+			margin: 20px 0;
+		}
+		.floor_ctrl{
+			position: fixed;
+			left: 20px;
+			bottom: 20px;
+			width: 40px;
+		}
+		.floor_ctrl span{
+			height: 40px;
+			margin-bottom: 1px;
+			background: #F90;
+			display: block;
+			text-align: center;
+			line-height: 40px;
+			color: #FFF;
+		}
+		.floor_ctrl span.active{
+			background: #03ccbb;
+		}
+	</style>
+</head>
+<body>
+	<div class="floor">
+		<p>1</p>
+		<p>2</p>
+		<p>3</p>
+		<p>4</p>
+		<p>5</p>
+		<p>6</p>
+		<p>7</p>
+		<p>8</p>
+	</div>
+	<div class="floor_ctrl">
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+		<span>4</span>
+		<span>5</span>
+		<span>6</span>
+		<span>7</span>
+		<span>8</span>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		$('.floor_ctrl span').click(function(){//点击按钮设置卷去高度
+			var top = $('.floor p').eq($(this).index()).offset().top;
+			$('body,html').stop().animate({
+				scrollTop:top
+			});
+		});
+
+		$(window).scroll(function(){//卷去高度改变，设置按钮高亮。
+			var scroll = $('html,body').scrollTop();
+			$('.floor p').each(function(index,ele){
+				if(scroll>=$(ele).offset().top){
+					$('.floor_ctrl span').eq($(ele).index()).addClass('active').siblings().removeClass('active');
+				}
+			});
+		});
+
+	</script>
+</body>
+</html>

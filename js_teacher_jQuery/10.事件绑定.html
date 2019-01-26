@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>按钮</button>
+	<script src="js/jquery.min.js"></script>
+
+	<script>
+		/*
+			1、通过jquery定义好的事件类型接口进行绑定
+			2、通过bind方法绑定事件处理
+				$(ele).bind(eventType,function(){
+					alert(456);
+				});
+
+			3、通过on方法绑定事件处理，可以进行事件代理
+				$(ele).on(eventType[,selector],function(){
+					alert(789)
+				})
+		*/
+		/*$(document).click(function(){
+			alert(123);
+		});*/
+
+		/*$(document).bind('click',function(){
+			alert(456);
+		});*/
+
+		$(document).on('click','button',function(){//事件代理
+			alert(789);
+		});
+
+
+	</script>
+</body>
+</html>

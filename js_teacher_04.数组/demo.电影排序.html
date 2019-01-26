@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.movies{
+			width: 850px;
+			margin: 20px auto;
+		}
+		#movies_list{
+			margin: 10px 0;
+			overflow: hidden;
+		}
+		#movies_list .movie{
+			width: 160px;
+			height: 220px;
+			overflow: hidden;
+			margin: 5px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="movies">
+		<div class="btns">
+			<button onclick="sortMovie(1)">升序排序</button>
+			<button onclick="sortMovie(0)">降序排序</button>
+			<button onclick="sortMovie(2)">电影id大于50</button>
+		</div>
+		<div id="movies_list">
+			<!-- <div class="movie">
+				<img src="http://p0.meituan.net/movie/2/1.jpg@160w_220h_1e_1c">
+			</div> -->
+		</div>
+	</div>
+	<script src="movies.js"></script>
+	<script>
+		function createHtml(){
+			movies.forEach(function(ele,index){
+				movies_list.innerHTML += '<div class="movie"><img src="'+ele.logo_url+'"></div>';
+			});
+		}
+
+		createHtml();
+
+		function sortMovie(b){
+			if(b){
+				if(b == 1){
+					movies.sort(function(a,b){
+						return a.id - b.id;
+					});
+				}else if(b == 2){
+					movies = movies.filter(function(ele){
+						return ele.id > 50;
+					});
+				}
+			}else{
+				movies.sort(function(a,b){
+					return b.id-a.id;
+				});
+			}
+
+			movies_list.innerHTML = "";
+
+			createHtml();
+		}
+
+	</script>
+</body>
+</html>

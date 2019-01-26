@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// / \
+		/*
+			.  匹配任意字符
+			\d 匹配数字 [0-9]
+			\D 匹配非数字 [^0-9]
+			\w 匹配数字字母下划线 [0-9A-Za-z_]
+			\W 匹配非数字字母下划线[^0-9A-Za-z_]
+			\s 匹配空白符
+			\S 匹配非空白符
+			[] 匹配[]内任意一个字符
+			[^] ^代表匹配相反
+			/^/ 匹配开头
+			/$/ 匹配结尾
+			() 子表达式
+			|	或
+		*/
+
+		var reg = /^[A-z]{6}$/;
+		var str = "Ab1dEf";
+
+		console.log(reg.test(str));
+	</script>
+</body>
+</html>

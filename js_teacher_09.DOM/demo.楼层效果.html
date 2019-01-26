@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>楼层效果</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.floor{
+			width: 1200px;
+			margin: 0 auto;
+			padding-top: 800px;
+		}
+		.floor p{
+			height: 600px;
+			text-align: center;
+			line-height: 600px;
+			font-size: 100px;
+			background: #03ccbb;
+			margin: 20px 0;
+		}
+		.floor_ctrl{
+			position: fixed;
+			left: 20px;
+			bottom: 20px;
+			width: 40px;
+		}
+		.floor_ctrl span{
+			height: 40px;
+			margin-bottom: 1px;
+			background: #F90;
+			display: block;
+			text-align: center;
+			line-height: 40px;
+			color: #FFF;
+		}
+		.floor_ctrl span.active{
+			background: #03ccbb;
+		}
+	</style>
+</head>
+<body>
+	<div class="floor">
+		<p>1</p>
+		<p>2</p>
+		<p>3</p>
+		<p>4</p>
+		<p>5</p>
+		<p>6</p>
+		<p>7</p>
+		<p>8</p>
+	</div>
+	<div class="floor_ctrl">
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+		<span>4</span>
+		<span>5</span>
+		<span>6</span>
+		<span>7</span>
+		<span>8</span>
+	</div>
+
+	<script type="text/javascript">
+		var spans = document.querySelectorAll(".floor_ctrl span");
+		var ps = document.querySelectorAll(".floor p");
+
+		for(var i=0; i<spans.length; i++){
+			spans[i].index = i;
+			spans[i].onclick=function(){
+				for(var i=0; i<spans.length; i++){
+					spans[i].className = "";
+				}
+				this.className = "active";
+
+				var top = ps[this.index].offsetTop;
+				scrollTo(0,top);
+			}
+		}
+	</script>
+</body>
+</html>

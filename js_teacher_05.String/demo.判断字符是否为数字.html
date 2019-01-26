@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="ipt">
+	<button onclick="check()">验证首位是否为数字</button>
+	<script>
+		function check(){
+			var str = ipt.value;
+			// if(str.charCodeAt(0)>=48 && str.charCodeAt(0)<=57){
+			// 	alert("首字母不能为数字");
+			// }
+			if(str.charAt(0)>=0 && str.charAt(0)<=9){
+				alert("首字母不能为数字");
+			}
+		}
+	</script>
+</body>
+</html>

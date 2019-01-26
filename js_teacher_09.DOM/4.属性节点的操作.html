@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<h1>距离放假还有...</h1>
+
+	<script>
+		/*
+			getAttribute(属性名);
+				通过属性名获取该属性的值
+
+			setAttribute(属性名,属性值);
+				将对应的属性名设置为属性值
+
+			removeAttribute(属性名);
+				通过属性名删除属性
+		*/
+
+		var h1 = document.querySelector("h1");
+
+		h1.setAttribute("tips","距离放假还有2天多一点");
+
+		console.log(h1.getAttribute("tips"));
+
+		h1.removeAttribute("tips");
+
+	</script>
+</body>
+</html>

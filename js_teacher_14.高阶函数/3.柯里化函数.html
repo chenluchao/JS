@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+		function add(a,b){
+			var c = a+b;
+			return (function(d){
+				return d*d;
+			})(c);
+		}
+
+		alert(add(1,3));
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/jPages.css">
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+		.holder a,.holder span{
+			float: left;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			background: #F90;
+			color: #FFF;
+			text-decoration: none;
+		}
+		.holder a.jp-disabled{
+			background: #eee;
+			color: #FFF;
+		}
+		.holder a.jp-previous,.holder a.jp-next{
+			width: 50px;
+		}
+		.holder a.jp-current{
+			background: #03ccbb;
+		}
+		#movies ul{
+			overflow: hidden;
+		}
+		#movies ul li{
+			float: left;
+		}
+		#movies ul li img{
+			display: block;
+		}
+	</style>
+	</head>
+	<body>
+		<div id="movies"></div>
+		<div class="holder"></div>
+		
+		<script type="text/html" id="mode">
+			<ul id="hold">
+					<% for(var i=0;i<movies.length;i++){ %>
+						<li>
+							<%=movies[i].name%>
+							<img src="<%=movies[i].logo_url%>" />
+						</li>
+					<% } %>
+			</ul>
+		</script>
+		
+		<script type="text/javascript" src="js/baiduTemplate.js"></script>
+		<script type="text/javascript" src="js/jQuery.js"></script>
+		<script type="text/javascript" src="js/jPages.js"></script>
+		
+		<script type="text/javascript">
+			$.get("http://maoyan.alipapa.vip/movie").done(function(data){
+				$("#movies").html(baidu.template("mode",data));
+				$(".holder").jPages({
+					containerID:"hold",
+					first:"首页",
+					last:"尾页",
+					previous:"上一页",
+					next:"下一页",
+					perPage:5
+				})
+			})
+		</script>
+	</body>
+</html>

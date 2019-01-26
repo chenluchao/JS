@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr = [4,4,5,5,5,3,1,3,1,2,2,1];
+		var arr1 = [];//创建新数组
+
+		for(var i=0; i<arr.length; i++){
+			var b = true;//假设与新数组中元素没有重复。
+			for(var j=0; j<arr1.length; j++){
+				if(arr[i] == arr1[j]){
+					b = false;
+				}
+			}
+			if(b){
+				arr1[arr1.length] = arr[i];
+			}
+		}
+		console.log(arr1);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				 增加
+				 删除
+				 更改
+				 查询
+			*/
+			function setCookie(key,value,days){//增
+				var date=new date();
+				var day=days?days:1;
+				date.setData(date.getData()+day);
+				document.cookie=key+"="+value+"; expires="+date;
+			}
+			
+			function getCookie(key){
+				var cookies=document.cookie.split("; ");
+				for(i=0;i<cookies.length;i++){
+					var cook=cookies[i].split("=");
+					if(cook[0]=key){
+						return cook[1];
+					}
+				}
+				return null;
+			}
+			
+			function removeCookie(key){
+				setCookie(key,"",-1);
+			}
+			
+			function clearCookie(){
+				var cookies=document.cookie.split("; ");
+				for(var i=0;i<cookies.length;i++){
+					var cook=cookies[i].split("=");
+					removeCookie(cook[0]);
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+git init 初始化版本库
+
+git add 添加到暂存库
+
+git commit -m "msg" 生成版本
+
+git diff 查看本地与当前正式版本的区别
+
+git status 查看当前本地代码状态
+           修改了哪个文件，以及是否提交
+
+git reset HEAD <file> 从暂存区撤回到本地
+
+git reset --hard <版本号> 回退到某个版本
+	HEAD代表当前版本  HEAD^代表上个版本
+        可以通过git log 查看当前版本列表
+
+git reflog  查看历史版本

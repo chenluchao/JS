@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>偏移的div</title>
+	<style type="text/css">
+		.box{
+			width: 100px;
+			height: 100px;
+			background: #03ccbb;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script type="text/javascript">
+		var ele = document.querySelector(".box");
+
+		setInterval(function(){
+			ele.style.left = parseInt(getStyle(ele).left)+10+"px";
+		},20);
+
+	function getStyle(ele){
+		if(window.getComputedStyle){
+			return window.getComputedStyle(ele);
+		}else{
+			return ele.currentStyle;
+		}
+	}
+	</script>
+</body>
+</html>

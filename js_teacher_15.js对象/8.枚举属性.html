@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+		/*
+			{
+				__proto__//不可枚举属性
+			}
+		*/
+
+		var obj = {
+			name:"Sarry",//枚举属性
+			age:18,
+			sex:"女"
+		}
+
+		for(var attr in obj){
+			console.log(attr);
+		}
+
+	</script>
+</body>
+</html>

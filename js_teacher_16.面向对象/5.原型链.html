@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+		/*
+			假设有父类Person和子类Chinese
+			让子类Chinese继承父类Person
+			继承方法为：子类的原型指向父类的实例
+
+			当实例化子类后，实例的__proto__属性会指向子类Chinese的原型,
+			子类Chinese的__proto__属性会指向父类Person的原型，
+			父类Person的__proto__属性会指向Object的原型,
+			Object的__proto__属性会指向null。
+		*/
+
+		function Person(name,age,sex){//人 类
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+		}
+		Person.prototype.speak=function(){
+			console.log("ji li gu lu");
+		}
+
+		function Chinese(name,age,sex,language){
+			//借用构造函数Person
+			Person.call(this,name,age,sex);//构造函数继承
+			this.language = language;
+		}
+
+		//子类的原型指向父类的实例
+		Chinese.prototype = new Person();
+		Chinese.prototype.constructor = Chinese;
+
+		Chinese.prototype.pay=function(){
+			console.log("打开支付宝");
+		}
+
+		var chinese = new Chinese();
+
+
+		console.log(chinese.__proto__.__proto__.__proto__.__proto__);
+
+	</script>
+</body>
+</html>

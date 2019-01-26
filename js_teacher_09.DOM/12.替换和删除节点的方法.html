@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>替换和删除节点的方法</title>
+</head>
+<body>
+
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+
+	<script type="text/javascript">
+		/*
+			parent.replaceChild(新节点,被替换的节点);
+
+			parent.removeChild(节点);
+		*/
+		var li = document.createElement("li");
+		var ul = document.querySelector("ul");
+
+		li.innerHTML = "我是新加的li";
+
+		ul.replaceChild(li,ul.children[0]);
+
+
+		var lis = document.querySelectorAll("ul li");
+
+		for(var i=0; i<lis.length; i++){
+			lis[i].onclick=function(){
+				this.parentNode.removeChild(this);
+			}
+		}
+	</script>
+</body>
+</html>

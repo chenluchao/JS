@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//变量的生命周期伴随着函数运行的开始到结束
+		//函数运行结束会释放函数的运行内存
+		//当函数执行环境被外部引用时，函数的运行内存将不被释放
+
+		function fn(){
+			//alert(a);//变量提升
+			var a = 10;//12
+
+			return function(){//延长变量的生命周期
+				alert(++a);
+			};
+		}
+		var foo = fn();
+
+		foo();//11
+		foo();//12
+
+		var foo1 = fn();
+
+		foo1();//11
+
+		foo();//13
+
+		foo1();//12
+	</script>
+</body>
+</html>

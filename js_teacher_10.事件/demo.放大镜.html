@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>放大镜</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.zoom{
+			width: 450px;
+			height: 450px;
+			border: solid 1px #bbb;
+			margin: 30px;
+			position: relative;
+		}
+		.s_area{
+			position: relative;
+		}
+		.s_area img{
+			display: block;
+		}
+		.mask{
+			width: 100px;
+			height: 100px;
+			background: #000;
+			filter:alpha(opacity=65);
+			opacity: 0.65;
+			position: absolute;
+			left: -10000px;
+			top: 0;
+		}
+		.b_area{
+			position: absolute;
+			left: -10000px;
+			top: -1px;
+			border:solid 1px #bbb;
+			width: 450px;
+			height: 450px;
+			overflow: hidden;
+		}
+		.b_area img{
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body style="height: 10000px">
+	<div class="zoom">
+		<div class="s_area">
+			<img src="images/pc.jpg" width="450" height="450">
+			<span class="mask"></span>
+		</div>
+		<div class="b_area">
+			<img src="images/pc.jpg" width="800" height="800">
+		</div>
+	</div>
+	<script type="text/javascript">
+		/*
+			遮罩层宽高度 = (s_area/b_img)*s_area;
+		*/
+		var zoom = document.querySelector(".zoom");
+		var s_area = document.querySelector(".s_area");
+		var b_area = document.querySelector(".b_area");
+		var mask = document.querySelector(".mask");
+		var b_img = document.querySelector(".b_area img");
+		//设置遮罩层大小
+		mask.style.width = (s_area.offsetWidth/b_img.offsetWidth)*s_area.offsetWidth+"px";
+		mask.style.height = (s_area.offsetHeight/b_img.offsetHeight)*s_area.offsetHeight+"px";
+		var maxW = s_area.offsetWidth-mask.offsetWidth;
+		var maxH = s_area.offsetHeight-mask.offsetHeight;
+		//滑入小图区显示遮罩层和大图区
+		s_area.onmouseenter=function(){
+			mask.style.left = 0;
+			b_area.style.left = "100%";
+		}
+		//滑出小图区隐藏遮罩层和大图区
+		s_area.onmouseleave=function(){
+			mask.style.left = "-10000px";
+			b_area.style.left = "-10000px";
+		}
+		//在小图区移动时，遮罩层和大图改变位置
+		s_area.onmousemove=function(e){
+			e = e||event;
+			/*
+				鼠标到文档边缘-放大镜盒子偏移量-盒子边框-遮罩层一半
+			*/
+			var left = e.pageX-zoom.offsetLeft-zoom.clientLeft-mask.offsetWidth/2;
+			var top = e.pageY-zoom.offsetTop-zoom.clientTop-mask.offsetHeight/2;
+			//限制范围
+			left = Math.max(0,Math.min(left,maxW));
+			top = Math.max(0,Math.min(top,maxH));
+			mask.style.left = left+"px";
+			mask.style.top = top+"px";
+			/*
+				-(遮罩层偏移量/活动区)*(大图-大图区)
+			*/
+			b_img.style.left = -(left/maxW)*(b_img.offsetWidth-b_area.clientWidth)+"px";
+			b_img.style.top = -(top/maxH)*(b_img.offsetHeight-b_area.clientHeight)+"px";
+		}
+	</script>
+</body>
+</html>

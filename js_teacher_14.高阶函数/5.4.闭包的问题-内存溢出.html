@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>01</li>
+		<li>02</li>
+		<li>03</li>
+		<li>04</li>
+		<li>05</li>
+		<li>06</li>
+		<li>07</li>
+		<li>08</li>
+		<li>09</li>
+		<li>10</li>
+	</ul>
+
+	<script>
+		//循环引用，将导致父函数的执行环境不被释放
+		//当循环应用过多时，可能会导致内存溢出
+		var lis = document.querySelectorAll("ul li");
+//		for(var i=0; i<lis.length; i++){
+//			(function(i){//封存变量
+//				lis[i].onclick=function(){//异步
+//					alert(i);
+//					lis[i].onclick=null;//回收函数内存
+//				}
+//			})(i);
+//		}
+//  
+		for(var i=0; i<lis.length; i++){
+			lis[i].index = i;
+			lis[i].onclick=function(){
+				alert(this.index);
+			}
+		}
+
+//		for(let i=0;i<lis.length;i++){
+//			lis[i].onclick=function(){
+//				alert(i+1);
+//			}
+//		}
+	</script>
+</body>
+</html>

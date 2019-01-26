@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+			只能通过document.cookie进行增删改查操作
+		*/
+
+		//cookie的存储
+		/*
+			键值对
+				key=value
+		*/
+		// document.cookie = "name=张三";
+		// document.cookie = "age=18";
+
+		//设置cookie过期时间
+		var date = new Date();//当前时间
+		date.setDate(date.getDate()+7);//7天以后
+		document.cookie = "name=张三; expires="+date;
+		document.cookie = "age=18";//每条cookie都必须单独存储
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//依次选择数组的位置，放上相应的元素
+		var arr = [12,56,34,5,18,3,9];
+		
+		for(var i=0; i<arr.length-1; i++){//外层循环选择需要改变的位置
+			for(var j=i+1; j<arr.length; j++){//内层循环选择比较数据的位置
+				if(arr[j]<arr[i]){
+					var num = arr[j];
+					arr[j] = arr[i];
+					arr[i] = num;
+				}
+			}
+		}
+
+		console.log(arr);
+
+	</script>
+</body>
+</html>

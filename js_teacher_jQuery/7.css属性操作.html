@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+
+		.box{
+			width: 100px;
+			height: 100px;
+			background: #03ccbb;
+			padding: 10px;
+			border: solid 10px #000;
+			margin: 10px;
+		}
+		.parent{
+			width: 200px;
+			height: 200px;
+			margin: 100px auto;
+			position: relative;
+			background: #F90;
+			line-height: 200px;
+			text-align: center;
+		}
+		.child{
+			width: 100px;
+			height: 100px;
+			display: inline-block;
+			vertical-align: middle;
+			background: deepskyblue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+
+	<div class="parent">
+		<div class="child">
+			
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		/*
+			postion 参考最近的拥有定位属性的父元素
+
+			offset 参考文档
+				   可以用于设置偏移量
+		*/
+
+		console.log($('.child').position());//{left:100,top:100}
+
+		console.log($('.child').offset());//{left:100,top:100}
+
+		$('.child').offset({left:100,top:100});
+
+
+
+
+
+
+
+
+
+
+
+
+		// console.log($('.box').css('width'));//一个字符串参数用于获取样式
+
+		// $('.box').css("width",200)//两个参数用于设置样式
+
+		// $('.box').css({
+		// 	height:300,
+		// 	background:'red'
+		// });
+
+		console.log($('.box').height());//只包含内容区
+		console.log($('.box').innerHeight());//包含padding
+		console.log($('.box').outerHeight());
+		//包含border和选择性的margin
+
+		console.log($('.box').width());//只包含内容区
+		console.log($('.box').innerWidth());//包含padding
+		console.log($('.box').outerWidth());
+		//包含border和选择性的margin
+
+
+	</script>
+</body>
+</html>

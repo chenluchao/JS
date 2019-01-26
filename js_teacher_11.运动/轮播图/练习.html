@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>轮播图练习</title>
+		<script type="text/javascript" src="js/move.js"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			.slider{
+				width: 520px;
+				height: 280px;
+				margin: 30px auto;
+				position: relative;
+				overflow: hidden;
+				line-height: 280px;
+				text-align: center;
+			}
+			.slider ul{
+				width: 100000px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			.slider ul li{
+				float: left;
+			}
+			.slider ul li img{
+				display: block;
+			}
+			.next,.prev{
+				width: 32px;
+				height: 32px;
+				background: rgba(0,0,0,0.3);
+				position: absolute;
+				top: 50%;
+				margin-top: -16px;
+				text-align: center;
+				font-weight: bold;
+				line-height: 32px;
+				color: #FFFFFF;
+				font-size: 18px;
+				cursor: pointer;
+				display: none;
+			}
+			.prev{
+				left: 0;
+			}
+			.next{
+				right: 0;
+			}
+			.slider:hover .next,.slider:hover .prev{
+				display: block;
+			}
+			.prev:hover,.next:hover{
+				background: rgba(0,0,0,0.65);
+			}
+			.dot{
+				display: inline-block;
+				z-index: 1;
+				position: relative;
+				margin-bottom: 10px;
+				vertical-align: bottom;
+				background: rgba(255,255,255,0.3);
+				border-radius: 7px;
+			}
+			.dot span{
+				float: left;
+				width: 8px;
+				height: 8px;
+				background: #FFFFFF;
+				margin: 3px;
+				cursor: pointer;
+				border-radius: 50%;
+			}
+			.dot span.active{
+				background: #F40;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slider">
+			<ul>
+				<li><img src="images/1.jpg"/></li>
+				<li><img src="images/2.jpg"/></li>
+				<li><img src="images/3.jpg"/></li>
+				<li><img src="images/4.jpg"/></li>
+				<li><img src="images/5.jpg"/></li>
+				<li><img src="images/1.jpg"/></li>
+			</ul>
+			<div class="prev">&lt;</div>
+			<div class="next">&gt;</div>
+			<div class="dot">
+				<span class="active"></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var slider=document.querySelector(".slider");
+			var eul=slider.children[0];
+			var lis=eul.children;
+			var prev=slider.children[1];
+			var next=slider.children[2];
+			var dots=slider.children[3].children;
+			
+			var index=0;
+			fnChange();
+			
+			slider.timer=setInterval(fnNext,1000);
+			
+			slider.onmouseenter=function(){
+				clearInterval(slider.timer);
+			}
+			slider.onmouseleave=function(){
+				slider.timer = setInterval(fnNext,1000);
+			}
+			
+//			prev.onclick=fnPrev;
+			prev.onclick=function(){
+				fnPrev();
+			}
+			next.onclick=fnNext;
+			
+			for(var i=0;i<dots.length;i++){
+				dots[i].index=i;
+				dots[i].onclick=function(){
+					index=this.index;
+					fnChange();
+				}
+			}
+			
+			function fnNext(){
+				index++;
+				if(index==lis.length){
+					index=1;
+					eul.style.left=0;
+				}
+				fnChange();
+			}
+			function fnPrev(){
+				index--;
+				if(index<0){
+					index=lis.length-2;
+					eul.style.left=-(lis.length-1)*lis[0].offsetWidth+"px";
+				}
+				fnChange();
+			}
+			function fnChange(){
+				var num=index;
+				if(index==dots.length){
+					num=0;
+				}
+				for(var i=0;i<dots.length;i++){
+					dots[i].className="";
+				}
+				dots[num].className="active";
+				
+				move(eul,{
+					left:-index*lis[0].offsetWidth
+				},200)
+			}
+		</script>
+	</body>
+</html>

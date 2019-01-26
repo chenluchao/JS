@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+			任何函数体中都存在arguments
+				arguments[n]：取出第n个参数
+				arguments.length：参数个数
+		*/
+		
+		function fn(){
+			var sum = 0;
+			for(var i=0; i<arguments.length; i++){
+				sum += arguments[i];
+			}
+			console.log(arguments);
+			
+		}
+
+		fn(1,3,3,3,4,5);
+	</script>
+</body>
+</html>

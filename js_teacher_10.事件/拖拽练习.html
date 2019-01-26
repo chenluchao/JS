@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>拖拽练习</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			img{
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<img width="50" height="50" src="images/userpic.jpg"/>
+		<script type="text/javascript">
+			var img=document.querySelector("img");
+			var maxw=document.documentElement.clientWidth-img.offsetWidth;
+			var maxh=document.documentElement.clientHeight-img.offsetHeight;
+			img.onmousedown=function(e){
+				e=e||window.event;
+				e.preventDefault?e.preventDefault():e.returnValue=false;
+				var nx=e.offsetX;
+				var ny=e.offsetY;
+				document.onmousemove=function(e){
+					e=e||window.event;
+					var left=e.clientX-nx;
+					var top=e.clientY-ny;
+					left=Math.max(0,Math.min(left,maxw));
+					top=Math.max(0,Math.min(top,maxh));
+					img.style.left=left+"px";
+					img.style.top=top+"px";
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;
+				}
+			}
+		</script>
+	</body>
+</html>

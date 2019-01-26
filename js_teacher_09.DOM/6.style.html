@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>style</title>
+	<style type="text/css">
+		.box{
+			border: solid 1px #03ccbb;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script type="text/javascript">
+		//style属性只能设置或者获取元素的内联样式。
+		var ele = document.querySelector(".box");
+
+		ele.style.width = "100px";
+		ele.style.height = "100px";
+		ele.style.background = "#F90";
+		ele.style.paddingLeft = "20px";
+		ele.style["padding-top"] = "20px";
+
+		ele.style.transform = "rotate(30deg)";
+
+		console.log(ele.style.width);
+		console.log(ele.style.border);
+	</script>
+</body>
+</html>

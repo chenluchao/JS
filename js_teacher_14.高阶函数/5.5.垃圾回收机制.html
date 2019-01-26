@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//js中的复杂数据类型，采用引用计数的手段，来记录函数的引用。
+		//当函数的引用计数为0时，函数将被回收。
+
+		//当某个函数或运行环境不在被使用时，需要进行垃圾回收。
+
+		function fn(){
+			alert(123);
+		}
+
+		var foo = fn;//赋值运算符只能操作栈内存
+
+		fn = null;
+
+		foo = null;
+
+
+
+	</script>
+</body>
+</html>

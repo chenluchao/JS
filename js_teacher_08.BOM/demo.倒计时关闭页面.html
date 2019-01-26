@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button onclick="closePage()">3秒后关闭页面</button>
+	<button onclick="cancelClose()">取消关闭页面</button>
+	<script>
+		var timer = null;
+		function closePage(){
+			timer = setTimeout(function(){
+				window.close();
+			},3000);
+		}
+		function cancelClose(){
+			clearTimeout(timer);
+			console.log("取消关闭页面");
+		}
+	</script>
+</body>
+</html>

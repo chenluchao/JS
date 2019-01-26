@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+			原型用于储存共享方法
+
+			构造函数的函数名第一个字母大写。
+
+			每个对象都存在一个属性，__proto__，指向构造函数的原型
+
+			每个函数都存在一个属性，prototype
+				{
+					constructor:Person//构造函数指向原函数
+					__proto__://指向父类的原型
+				}
+
+		*/
+
+		function Person(name,age,sex){
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+		}
+
+		Person.prototype.sayName=function(){
+			console.log(this.name);
+		}
+
+		Person.prototype.sayAge=function(){
+			console.log(this.age);
+		}
+
+		var person = new Person("Sarry",20,"女");//实例化
+
+		var person1 = new Person("弗利沙",30,"男");
+
+		Person.prototype.saySex=function(){
+			console.log(this.sex);
+		}
+
+		person.sayName();
+
+		person1.sayName();
+
+		person.sayAge();
+
+		person1.sayAge();
+
+		person.saySex();
+
+		person1.saySex();
+
+		console.log(person.sayName === person1.sayName);
+	</script>
+</body>
+</html>

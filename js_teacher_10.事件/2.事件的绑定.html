@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>事件的绑定</title>
+</head>
+<body>
+	<button onclick="alert(123)">按钮</button>
+
+	<script type="text/javascript">
+		/*
+			事件的绑定
+				DOM0级事件绑定
+					1、直接在标记中绑定
+					2、为DOM元素的事件属性定义函数
+				
+				DOM2级事件绑定
+					1、addEventListener(事件类型,事件处理,是否捕获);高版本
+					2、attachEvent(事件句柄,事件处理);IE低版本
+					
+					兼容写法
+						if(btn.addEventListener){
+							btn.addEventListener("click",fn,false);
+						}else{
+							btn.attachEvent("onclick",fn);
+						};
+
+		*/
+
+		var btn = document.querySelector("button");
+
+		btn.onclick=function(){
+			alert(456);
+		}
+
+		if(btn.addEventListener){
+			btn.addEventListener("click",function(){
+				alert(789);
+			},false);
+		}else{
+			btn.attachEvent("onclick",function(){
+				alert(789);
+			});
+		};
+
+	</script>
+</body>
+</html>
